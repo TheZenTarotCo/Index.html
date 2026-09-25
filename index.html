@@ -3,33 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08040f">
-<meta name="description" content="The Zentarot Co. — Tarot, I Ching, Oracle and Sibille readings. Since 2020.">
+<meta name="theme-color" content="#05020a">
 
 <title>The Zentarot Co. — Beyond The Visible</title>
 
+<meta name="description" content="The Zentarot Co. — Tarot, I Ching, Oracle and Sibille readings. Since 2020.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   THE ZENTAROT CO.
+   CINEMATIC 3D WEBSITE
+========================================================= */
+
 :root{
-  --bg:#07030d;
-  --bg2:#0d0618;
-  --purple:#8f5cff;
-  --purple2:#c59aff;
-  --violet:#5e2eb8;
-  --white:#f7f2ff;
-  --muted:#aaa0b8;
-  --line:rgba(205,170,255,.16);
-  --glass:rgba(20,10,35,.52);
-  --shadow:0 30px 100px rgba(88,35,170,.28);
+  --black:#050209;
+  --deep:#090311;
+  --purple:#8c4cff;
+  --violet:#5e22a9;
+  --lavender:#d5b8ff;
+  --white:#f7f1ff;
+  --muted:#9d94a8;
+  --line:rgba(214,182,255,.15);
 }
 
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
 html{
@@ -37,32 +42,43 @@ html{
 }
 
 body{
-  background:var(--bg);
+  background:var(--black);
   color:var(--white);
-  font-family:Inter, sans-serif;
+  font-family:Inter,sans-serif;
   overflow-x:hidden;
 }
 
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:100;
-  opacity:.08;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-}
+/* =========================
+   BACKGROUND
+========================= */
 
-#space{
+#universe{
   position:fixed;
   inset:0;
-  z-index:-5;
+  z-index:-10;
   overflow:hidden;
+
   background:
-    radial-gradient(circle at 50% 35%,rgba(108,52,190,.16),transparent 28%),
-    radial-gradient(circle at 15% 80%,rgba(71,28,130,.12),transparent 25%),
-    radial-gradient(circle at 85% 15%,rgba(125,65,220,.10),transparent 25%),
-    linear-gradient(180deg,#08040f 0%,#050208 100%);
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(101,42,176,.20),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(74,25,133,.15),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(117,48,201,.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #08030f 0%,
+      #030106 100%
+    );
 }
 
 .star{
@@ -70,637 +86,895 @@ body:before{
   width:2px;
   height:2px;
   border-radius:50%;
-  background:#fff;
-  opacity:.5;
+  background:white;
+  opacity:.45;
   animation:twinkle 4s ease-in-out infinite;
 }
 
 @keyframes twinkle{
-  0%,100%{opacity:.15;transform:scale(.7)}
-  50%{opacity:.9;transform:scale(1.5)}
+  0%,100%{
+    opacity:.12;
+    transform:scale(.7);
+  }
+
+  50%{
+    opacity:.9;
+    transform:scale(1.5);
+  }
 }
 
-/* NAV */
+/* =========================
+   NAV
+========================= */
 
 nav{
   position:fixed;
   top:0;
   left:0;
-  right:0;
-  height:82px;
-  z-index:50;
+  width:100%;
+  height:76px;
+
   display:flex;
+  justify-content:center;
   align-items:center;
-  justify-content:space-between;
-  padding:0 6vw;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  background:rgba(6,3,11,.38);
+
+  z-index:100;
+
+  background:rgba(5,2,9,.35);
   backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,.045);
 }
 
-.logo{
+.brand{
   font-family:Cinzel,serif;
-  font-size:16px;
-  letter-spacing:4px;
-  color:#fff;
+  font-size:14px;
+  letter-spacing:5px;
+  color:white;
 }
 
-.logo span{
-  color:var(--purple2);
+.brand span{
+  color:var(--lavender);
 }
 
-.nav-enter{
-  text-decoration:none;
-  color:#fff;
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  border:1px solid var(--line);
-  padding:11px 18px;
-  border-radius:100px;
-  transition:.3s;
-}
-
-.nav-enter:hover{
-  background:rgba(143,92,255,.15);
-  border-color:rgba(197,154,255,.5);
-}
-
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:100vh;
   position:relative;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:110px 20px 70px;
-  perspective:1400px;
+
+  text-align:center;
+
+  padding:100px 20px 60px;
+
   overflow:hidden;
+
+  perspective:1600px;
 }
 
 .hero-content{
   position:relative;
-  z-index:15;
-  text-align:center;
+  z-index:20;
+
+  max-width:800px;
+
   pointer-events:none;
 }
 
-.eyebrow{
-  font-size:10px;
-  letter-spacing:6px;
+.kicker{
+  font-size:9px;
+  letter-spacing:7px;
   text-transform:uppercase;
-  color:#bda8d4;
-  margin-bottom:23px;
+
+  color:#aa96c0;
+
+  margin-bottom:25px;
 }
 
 h1{
   font-family:Cinzel,serif;
-  font-weight:500;
-  font-size:clamp(45px,8vw,100px);
+  font-size:clamp(45px,8vw,105px);
+  line-height:.95;
+
+  font-weight:400;
+
   letter-spacing:8px;
-  line-height:.98;
+
   text-shadow:
-    0 0 30px rgba(184,137,255,.22),
-    0 15px 70px rgba(0,0,0,.7);
+    0 0 35px rgba(167,102,255,.2),
+    0 20px 70px rgba(0,0,0,.8);
 }
 
 h1 span{
   display:block;
+
   color:transparent;
-  -webkit-text-stroke:1px rgba(220,193,255,.72);
-  text-shadow:none;
+
+  -webkit-text-stroke:1px rgba(220,194,255,.75);
 }
 
-.hero-sub{
+.subtitle{
   max-width:570px;
+
   margin:28px auto 0;
-  color:#b8adbf;
+
+  color:#aaa0b4;
+
   font-size:13px;
+
   line-height:1.9;
+
   font-weight:300;
 }
 
-.hero-cta{
+/* =========================
+   ONLY BUTTON
+========================= */
+
+.buy-button{
   pointer-events:auto;
+
   display:inline-flex;
+
   align-items:center;
-  gap:12px;
-  margin-top:34px;
-  padding:16px 27px;
+  justify-content:center;
+
+  margin-top:36px;
+
+  padding:17px 31px;
+
   border-radius:100px;
-  background:linear-gradient(135deg,#a56eff,#6332bd);
-  color:#fff;
+
   text-decoration:none;
+
+  color:white;
+
   font-size:10px;
+
   letter-spacing:3px;
+
   text-transform:uppercase;
+
+  background:
+    linear-gradient(
+      135deg,
+      #b27aff,
+      #6932c4
+    );
+
+  border:1px solid rgba(229,205,255,.25);
+
   box-shadow:
-    0 0 30px rgba(143,92,255,.32),
-    0 15px 45px rgba(0,0,0,.35);
+    0 0 25px rgba(139,76,255,.25),
+    0 18px 60px rgba(0,0,0,.5);
+
   transition:.35s;
 }
 
-.hero-cta:hover{
-  transform:translateY(-4px);
+.buy-button:hover{
+  transform:translateY(-5px) scale(1.03);
+
   box-shadow:
-    0 0 50px rgba(143,92,255,.55),
-    0 20px 60px rgba(0,0,0,.5);
+    0 0 45px rgba(139,76,255,.55),
+    0 25px 70px rgba(0,0,0,.65);
 }
 
-.hero-cta .arrow{
-  font-size:15px;
-}
+/* =========================
+   3D WORLD
+========================= */
 
-/* 3D UNIVERSE */
-
-.universe{
+.world{
   position:absolute;
-  width:min(800px,100vw);
-  height:min(800px,100vw);
+
+  width:min(900px,100vw);
+  height:min(900px,100vw);
+
   left:50%;
-  top:52%;
-  transform:translate(-50%,-50%);
+  top:51%;
+
+  transform:
+    translate(-50%,-50%)
+    rotateX(0deg)
+    rotateY(0deg);
+
   transform-style:preserve-3d;
+
+  transition:transform .15s linear;
+
   pointer-events:none;
 }
 
+/* =========================
+   CENTRAL PORTAL
+========================= */
+
 .portal{
   position:absolute;
-  width:360px;
-  height:360px;
+
+  width:390px;
+  height:390px;
+
   left:50%;
   top:50%;
+
   transform:translate(-50%,-50%);
+
   border-radius:50%;
+
   background:
-    radial-gradient(circle at 45% 40%,
-      rgba(255,255,255,.22) 0%,
-      rgba(181,115,255,.18) 7%,
-      rgba(107,48,190,.18) 18%,
-      rgba(32,11,59,.5) 48%,
-      transparent 69%);
+    radial-gradient(
+      circle at 45% 42%,
+      rgba(230,210,255,.32),
+      rgba(165,94,255,.18) 12%,
+      rgba(82,28,157,.18) 30%,
+      rgba(18,5,31,.72) 58%,
+      transparent 72%
+    );
+
   box-shadow:
-    0 0 40px rgba(132,70,220,.3),
-    0 0 120px rgba(109,49,184,.18),
-    inset 0 0 80px rgba(178,116,255,.14);
+    0 0 45px rgba(146,76,255,.3),
+    0 0 130px rgba(107,42,190,.18);
+
   animation:portalPulse 7s ease-in-out infinite;
 }
 
-.portal:before,
-.portal:after{
+.portal::before{
   content:"";
+
   position:absolute;
-  inset:15%;
+
+  inset:10%;
+
   border-radius:50%;
-  border:1px solid rgba(211,177,255,.3);
+
+  border:1px solid rgba(213,182,255,.35);
+
   box-shadow:
-    0 0 35px rgba(170,108,255,.18),
-    inset 0 0 35px rgba(170,108,255,.12);
+    inset 0 0 45px rgba(157,89,255,.15),
+    0 0 35px rgba(157,89,255,.12);
+
+  animation:rotateRing 18s linear infinite;
 }
 
-.portal:after{
-  inset:27%;
-  border-color:rgba(220,191,255,.4);
-  animation:spin 15s linear infinite reverse;
+.portal::after{
+  content:"";
+
+  position:absolute;
+
+  inset:25%;
+
+  border-radius:50%;
+
+  border:1px solid rgba(225,203,255,.38);
+
+  box-shadow:
+    inset 0 0 30px rgba(178,112,255,.18);
+
+  animation:rotateRing 11s linear infinite reverse;
 }
 
 @keyframes portalPulse{
-  0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.75}
-  50%{transform:translate(-50%,-50%) scale(1.05);opacity:1}
+
+  0%,100%{
+    transform:translate(-50%,-50%) scale(.94);
+  }
+
+  50%{
+    transform:translate(-50%,-50%) scale(1.04);
+  }
+
 }
 
-@keyframes spin{
-  to{transform:rotate(360deg)}
+@keyframes rotateRing{
+  to{
+    transform:rotate(360deg);
+  }
 }
+
+/* =========================
+   ORBIT RINGS
+========================= */
 
 .orbit{
   position:absolute;
+
   left:50%;
   top:50%;
-  width:650px;
-  height:650px;
-  transform:translate(-50%,-50%) rotateX(65deg) rotateZ(-15deg);
-  border:1px solid rgba(190,145,255,.14);
+
   border-radius:50%;
-  box-shadow:0 0 50px rgba(120,60,220,.06);
+
+  border:1px solid rgba(193,152,255,.14);
+
+  transform-style:preserve-3d;
+}
+
+.orbit.one{
+  width:690px;
+  height:690px;
+
+  transform:
+    translate(-50%,-50%)
+    rotateX(68deg)
+    rotateZ(15deg);
+
+  animation:orbitSpin 25s linear infinite;
 }
 
 .orbit.two{
-  width:530px;
-  height:530px;
-  transform:translate(-50%,-50%) rotateX(70deg) rotateZ(48deg);
-  border-color:rgba(190,145,255,.11);
+  width:560px;
+  height:560px;
+
+  transform:
+    translate(-50%,-50%)
+    rotateX(70deg)
+    rotateZ(-45deg);
+
+  border-color:rgba(193,152,255,.11);
+
+  animation:orbitSpin 20s linear infinite reverse;
 }
 
 .orbit.three{
-  width:730px;
-  height:730px;
-  transform:translate(-50%,-50%) rotateX(72deg) rotateZ(100deg);
-  border-color:rgba(190,145,255,.08);
+  width:790px;
+  height:790px;
+
+  transform:
+    translate(-50%,-50%)
+    rotateX(74deg)
+    rotateZ(80deg);
+
+  border-color:rgba(193,152,255,.07);
+
+  animation:orbitSpin 32s linear infinite;
 }
 
-.orbit-dot{
+@keyframes orbitSpin{
+  to{
+    margin-left:1px;
+    filter:brightness(1.3);
+  }
+}
+
+/* =========================
+   ORBIT PARTICLES
+========================= */
+
+.particle{
   position:absolute;
-  width:8px;
-  height:8px;
+
+  width:7px;
+  height:7px;
+
   border-radius:50%;
-  background:#d8bdff;
-  box-shadow:0 0 20px #9d64ff;
-}
 
-.dot1{top:12%;left:15%}
-.dot2{right:7%;top:42%}
-.dot3{bottom:9%;left:38%}
-.dot4{top:35%;left:3%}
+  background:#d7b9ff;
 
-/* CARDS */
-
-.tarot{
-  position:absolute;
-  width:112px;
-  height:185px;
-  border-radius:8px;
-  transform-style:preserve-3d;
   box-shadow:
-    0 25px 60px rgba(0,0,0,.6),
-    0 0 35px rgba(128,72,210,.15);
-  overflow:hidden;
-  border:1px solid rgba(220,190,255,.38);
-  background:#140a22;
+    0 0 8px #d0aaff,
+    0 0 25px #8e4cff;
 }
 
-.tarot:before{
-  content:"✦";
+.p1{
+  left:13%;
+  top:25%;
+}
+
+.p2{
+  right:12%;
+  top:37%;
+}
+
+.p3{
+  left:29%;
+  bottom:10%;
+}
+
+.p4{
+  right:27%;
+  bottom:13%;
+}
+
+/* =========================
+   3D TAROT CARDS
+========================= */
+
+.card{
   position:absolute;
-  inset:8px;
-  border:1px solid rgba(216,182,255,.35);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:Cinzel,serif;
-  font-size:48px;
-  color:#d9bcff;
+
+  width:118px;
+  height:190px;
+
+  border-radius:9px;
+
   background:
-    radial-gradient(circle,rgba(135,75,230,.4),transparent 55%),
-    repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 6px);
+    linear-gradient(
+      145deg,
+      #28113f,
+      #0b0611
+    );
+
+  border:1px solid rgba(225,197,255,.42);
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.75),
+    0 0 35px rgba(123,59,211,.16);
+
+  overflow:hidden;
+
+  transform-style:preserve-3d;
 }
 
-.tarot:after{
-  content:"THE ZENTAROT CO.";
+.card::before{
+  content:"";
+
   position:absolute;
-  bottom:17px;
+
+  inset:9px;
+
+  border:1px solid rgba(211,177,255,.38);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(140,75,235,.35),
+      transparent 58%
+    );
+
+  box-shadow:
+    inset 0 0 25px rgba(174,106,255,.1);
+}
+
+.card::after{
+  content:"✦";
+
+  position:absolute;
+
   left:0;
   right:0;
+  top:50%;
+
+  transform:translateY(-50%);
+
   text-align:center;
+
   font-family:Cinzel,serif;
+
+  font-size:48px;
+
+  color:#d8baff;
+
+  text-shadow:
+    0 0 20px rgba(201,161,255,.8);
+}
+
+.card-name{
+  position:absolute;
+
+  bottom:13px;
+
+  left:0;
+  right:0;
+
+  text-align:center;
+
+  font-family:Cinzel,serif;
+
   font-size:6px;
+
   letter-spacing:2px;
-  color:#d8c1ef;
+
+  color:#cdb4e8;
+
+  z-index:3;
 }
 
 .card-a{
   left:8%;
-  top:28%;
-  transform:rotateY(26deg) rotateZ(-17deg) translateZ(80px);
-  animation:floatA 7s ease-in-out infinite;
+  top:24%;
+
+  transform:
+    rotateY(28deg)
+    rotateZ(-17deg)
+    translateZ(100px);
+
+  animation:cardFloat1 7s ease-in-out infinite;
 }
 
 .card-b{
   right:8%;
-  top:21%;
-  transform:rotateY(-27deg) rotateZ(15deg) translateZ(100px);
-  animation:floatB 8s ease-in-out infinite;
+  top:20%;
+
+  transform:
+    rotateY(-28deg)
+    rotateZ(16deg)
+    translateZ(130px);
+
+  animation:cardFloat2 8s ease-in-out infinite;
 }
 
 .card-c{
-  left:19%;
+  left:15%;
   bottom:8%;
-  transform:rotateY(35deg) rotateZ(9deg) translateZ(50px);
-  animation:floatC 9s ease-in-out infinite;
+
+  transform:
+    rotateY(32deg)
+    rotateZ(10deg)
+    translateZ(70px);
+
+  animation:cardFloat3 9s ease-in-out infinite;
 }
 
 .card-d{
-  right:17%;
+  right:15%;
   bottom:7%;
-  transform:rotateY(-34deg) rotateZ(-12deg) translateZ(70px);
-  animation:floatD 7.5s ease-in-out infinite;
+
+  transform:
+    rotateY(-32deg)
+    rotateZ(-12deg)
+    translateZ(80px);
+
+  animation:cardFloat4 7.5s ease-in-out infinite;
 }
 
-@keyframes floatA{
+@keyframes cardFloat1{
   0%,100%{margin-top:0}
-  50%{margin-top:-28px}
+  50%{margin-top:-25px}
 }
-@keyframes floatB{
+
+@keyframes cardFloat2{
   0%,100%{margin-top:0}
-  50%{margin-top:24px}
+  50%{margin-top:28px}
 }
-@keyframes floatC{
+
+@keyframes cardFloat3{
   0%,100%{margin-top:0}
-  50%{margin-top:-20px}
+  50%{margin-top:-22px}
 }
-@keyframes floatD{
+
+@keyframes cardFloat4{
   0%,100%{margin-top:0}
   50%{margin-top:25px}
 }
 
-/* SECTION */
+/* =========================
+   INTRO
+========================= */
 
-.section{
+.intro{
   position:relative;
-  padding:130px 7vw;
+
+  padding:150px 25px;
+
+  text-align:center;
 }
 
-.section-inner{
-  max-width:1150px;
-  margin:auto;
-}
+.label{
+  color:#a88cc1;
 
-.section-label{
-  color:#a987c7;
-  text-transform:uppercase;
-  letter-spacing:5px;
   font-size:9px;
-  margin-bottom:17px;
+
+  letter-spacing:6px;
+
+  text-transform:uppercase;
+
+  margin-bottom:20px;
 }
 
-.section-title{
+.intro h2{
   font-family:Cinzel,serif;
+
+  font-size:clamp(30px,5vw,58px);
+
   font-weight:400;
-  font-size:clamp(30px,5vw,55px);
+
   letter-spacing:2px;
+
   line-height:1.15;
 }
 
-.section-description{
-  max-width:570px;
-  color:#9f96a9;
-  line-height:1.9;
+.intro p{
+  max-width:600px;
+
+  margin:25px auto 0;
+
+  color:#958b9f;
+
   font-size:13px;
-  margin-top:22px;
+
+  line-height:1.9;
 }
 
-/* GLASS EXPERIENCE */
-
-.experience{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  margin-top:65px;
-}
-
-.glass{
-  position:relative;
-  min-height:330px;
-  padding:35px;
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:
-    linear-gradient(145deg,rgba(48,22,75,.35),rgba(10,5,18,.55));
-  backdrop-filter:blur(15px);
-  overflow:hidden;
-  transition:.45s;
-  transform-style:preserve-3d;
-}
-
-.glass:hover{
-  transform:translateY(-8px) rotateX(2deg) rotateY(-2deg);
-  border-color:rgba(198,157,255,.34);
-  box-shadow:var(--shadow);
-}
-
-.glass:before{
-  content:"";
-  position:absolute;
-  width:250px;
-  height:250px;
-  right:-100px;
-  top:-100px;
-  border-radius:50%;
-  background:rgba(133,69,230,.12);
-  filter:blur(25px);
-}
-
-.glass-number{
-  font-family:Cinzel,serif;
-  font-size:12px;
-  color:#9874b7;
-}
-
-.glass h3{
-  margin-top:70px;
-  font-family:Cinzel,serif;
-  font-weight:400;
-  font-size:25px;
-}
-
-.glass p{
-  color:#9990a4;
-  font-size:12px;
-  line-height:1.8;
-  margin-top:14px;
-  max-width:410px;
-}
-
-/* CENTER SIGIL */
+/* =========================
+   3D SIGIL
+========================= */
 
 .sigil-section{
-  text-align:center;
-  min-height:650px;
+  min-height:700px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
+  text-align:center;
+
+  position:relative;
+
   overflow:hidden;
 }
 
 .sigil{
   position:relative;
-  width:340px;
-  height:340px;
-  margin:50px auto;
-  transform-style:preserve-3d;
-  animation:sigilFloat 6s ease-in-out infinite;
-}
 
-@keyframes sigilFloat{
-  50%{transform:translateY(-15px) rotateX(5deg)}
+  width:350px;
+  height:350px;
+
+  margin:65px auto;
+
+  transform-style:preserve-3d;
+
+  animation:sigilFloat 6s ease-in-out infinite;
 }
 
 .sigil-ring{
   position:absolute;
+
   inset:0;
-  border:1px solid rgba(185,139,255,.3);
+
   border-radius:50%;
-  box-shadow:0 0 70px rgba(129,64,215,.15);
+
+  border:1px solid rgba(197,161,255,.28);
+
+  box-shadow:
+    0 0 60px rgba(122,59,212,.13);
 }
 
 .sigil-ring:nth-child(2){
   inset:35px;
-  transform:rotate(35deg) rotateX(65deg);
+
+  transform:
+    rotateX(65deg)
+    rotateZ(30deg);
+
   border-style:dashed;
 }
 
 .sigil-ring:nth-child(3){
-  inset:75px;
-  transform:rotate(-35deg) rotateX(65deg);
+  inset:70px;
+
+  transform:
+    rotateX(65deg)
+    rotateZ(-40deg);
 }
 
-.sigil-core{
+.sigil-center{
   position:absolute;
+
   inset:105px;
+
   border-radius:50%;
+
   background:
-    radial-gradient(circle at 40% 35%,#d4b4ff, #7d3bd0 25%,#241037 65%,#0b0511);
+    radial-gradient(
+      circle at 35% 30%,
+      #e0c8ff,
+      #8e48dd 25%,
+      #30114f 60%,
+      #08030d
+    );
+
   box-shadow:
-    0 0 40px rgba(157,91,255,.45),
-    0 0 110px rgba(110,48,190,.25);
+    0 0 45px rgba(157,83,255,.5),
+    0 0 130px rgba(115,48,190,.2);
 }
 
-.sigil-core:after{
+.sigil-center::after{
   content:"✦";
+
   position:absolute;
+
   inset:0;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
-  font-size:45px;
+
+  font-size:44px;
+
   color:white;
-  text-shadow:0 0 25px #fff;
+
+  text-shadow:
+    0 0 25px white;
 }
 
-/* QUOTE */
+@keyframes sigilFloat{
+  50%{
+    transform:
+      translateY(-15px)
+      rotateX(5deg);
+  }
+}
+
+/* =========================
+   QUOTE
+========================= */
 
 .quote{
+  padding:150px 25px;
+
   text-align:center;
-  padding:150px 20px;
 }
 
-.quote-mark{
+.quote-symbol{
   font-family:Cinzel,serif;
+
   font-size:60px;
-  color:#7e4bb2;
-  line-height:.5;
+
+  color:#8051ae;
 }
 
 .quote-text{
-  max-width:800px;
-  margin:30px auto;
+  max-width:850px;
+
+  margin:20px auto;
+
   font-family:Cinzel,serif;
-  font-size:clamp(25px,4vw,45px);
+
+  font-size:clamp(25px,4vw,47px);
+
   line-height:1.35;
+
   font-weight:400;
 }
 
 .quote-small{
-  color:#887e91;
-  font-size:9px;
-  letter-spacing:4px;
+  color:#756c7e;
+
+  font-size:8px;
+
+  letter-spacing:5px;
+
   text-transform:uppercase;
 }
 
-/* FINAL */
+/* =========================
+   FINAL
+========================= */
 
 .final{
   min-height:75vh;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   text-align:center;
+
   position:relative;
+
   overflow:hidden;
 }
 
-.final:before{
-  content:"";
+.final-glow{
   position:absolute;
-  width:600px;
-  height:600px;
+
+  width:650px;
+  height:650px;
+
   border-radius:50%;
-  background:radial-gradient(circle,rgba(120,55,220,.2),transparent 65%);
-  filter:blur(20px);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(123,53,215,.22),
+      transparent 65%
+    );
+
+  filter:blur(15px);
 }
 
 .final-content{
   position:relative;
-  z-index:2;
+
+  z-index:3;
 }
 
 .final h2{
   font-family:Cinzel,serif;
+
+  font-size:clamp(42px,7vw,80px);
+
   font-weight:400;
-  font-size:clamp(38px,7vw,78px);
-  letter-spacing:4px;
+
+  letter-spacing:5px;
+
+  line-height:1.05;
 }
 
 .final p{
-  color:#9c92a5;
-  max-width:500px;
-  margin:24px auto 0;
+  max-width:480px;
+
+  margin:25px auto 0;
+
+  color:#958b9e;
+
   font-size:13px;
+
   line-height:1.8;
 }
 
-.final .hero-cta{
-  margin-top:35px;
-}
-
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-  padding:35px 7vw;
-  border-top:1px solid rgba(255,255,255,.06);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  color:#6f6678;
-  font-size:9px;
-  letter-spacing:2px;
+  padding:35px 25px;
+
+  text-align:center;
+
+  border-top:1px solid rgba(255,255,255,.05);
+
+  color:#625a6c;
+
+  font-size:8px;
+
+  letter-spacing:3px;
+
   text-transform:uppercase;
 }
 
 footer strong{
-  color:#9f83ba;
+  display:block;
+
+  color:#a58abf;
+
   font-family:Cinzel,serif;
-  font-weight:400;
+
+  margin-bottom:10px;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
   nav{
-    height:68px;
-    padding:0 20px;
+    height:64px;
   }
 
-  .logo{
-    font-size:12px;
+  .brand{
+    font-size:11px;
     letter-spacing:3px;
-  }
-
-  .nav-enter{
-    padding:9px 13px;
-    font-size:8px;
   }
 
   .hero{
     min-height:900px;
-    padding-top:100px;
   }
 
-  .universe{
+  .world{
     width:620px;
     height:620px;
-    top:47%;
+    top:48%;
   }
 
   .portal{
-    width:260px;
-    height:260px;
+    width:270px;
+    height:270px;
   }
 
-  .orbit{
+  .orbit.one{
     width:500px;
     height:500px;
   }
@@ -715,44 +989,43 @@ footer strong{
     height:570px;
   }
 
-  .tarot{
-    width:82px;
-    height:135px;
+  .card{
+    width:80px;
+    height:130px;
   }
 
-  .card-a{left:3%}
-  .card-b{right:3%}
-  .card-c{left:11%}
-  .card-d{right:10%}
+  .card::after{
+    font-size:32px;
+  }
+
+  .card-name{
+    font-size:4px;
+  }
+
+  .card-a{
+    left:2%;
+  }
+
+  .card-b{
+    right:2%;
+  }
+
+  .card-c{
+    left:8%;
+  }
+
+  .card-d{
+    right:8%;
+  }
 
   h1{
-    font-size:42px;
+    font-size:43px;
     letter-spacing:4px;
   }
 
-  .hero-sub{
-    max-width:330px;
+  .subtitle{
+    max-width:340px;
     font-size:12px;
-  }
-
-  .section{
-    padding:95px 22px;
-  }
-
-  .experience{
-    grid-template-columns:1fr;
-  }
-
-  .glass{
-    min-height:270px;
-  }
-
-  .glass h3{
-    margin-top:55px;
-  }
-
-  .sigil-section{
-    min-height:570px;
   }
 
   .sigil{
@@ -760,140 +1033,155 @@ footer strong{
     height:280px;
   }
 
-  .sigil-core{
-    inset:88px;
+  .sigil-center{
+    inset:85px;
   }
 
-  footer{
-    flex-direction:column;
-    text-align:center;
+  .intro,
+  .quote{
+    padding:110px 22px;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<div id="space"></div>
+<!-- BACKGROUND -->
+<div id="universe"></div>
 
+
+<!-- NAVIGATION -->
 <nav>
-  <div class="logo">THE <span>ZENTAROT</span> CO.</div>
-  <a class="nav-enter" href="https://thezentarotco.etsy.com" target="_blank" rel="noopener">
-    Enter the shop
-  </a>
+  <div class="brand">
+    THE <span>ZENTAROT</span> CO.
+  </div>
 </nav>
 
-<main>
 
+<!-- HERO -->
 <section class="hero">
 
-  <div class="universe" id="universe">
+  <div class="world" id="world">
 
     <div class="portal"></div>
 
-    <div class="orbit">
-      <div class="orbit-dot dot1"></div>
-      <div class="orbit-dot dot2"></div>
+    <div class="orbit one">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
     </div>
 
     <div class="orbit two">
-      <div class="orbit-dot dot3"></div>
+      <div class="particle p3"></div>
     </div>
 
     <div class="orbit three">
-      <div class="orbit-dot dot4"></div>
+      <div class="particle p4"></div>
     </div>
 
-    <div class="tarot card-a"></div>
-    <div class="tarot card-b"></div>
-    <div class="tarot card-c"></div>
-    <div class="tarot card-d"></div>
+
+    <div class="card card-a">
+      <div class="card-name">THE ZENTAROT</div>
+    </div>
+
+    <div class="card card-b">
+      <div class="card-name">THE ZENTAROT</div>
+    </div>
+
+    <div class="card card-c">
+      <div class="card-name">THE ZENTAROT</div>
+    </div>
+
+    <div class="card card-d">
+      <div class="card-name">THE ZENTAROT</div>
+    </div>
 
   </div>
 
+
   <div class="hero-content">
-    <div class="eyebrow">Tarot · I Ching · Oracle · Sibille</div>
+
+    <div class="kicker">
+      Tarot · I Ching · Oracle · Sibille
+    </div>
 
     <h1>
       THE ZENTAROT
       <span>CO.</span>
     </h1>
 
-    <p class="hero-sub">
-      Beyond the visible. A space for symbolic readings,
-      intuition and the questions that stay with you.
+    <p class="subtitle">
+      Beyond the visible. Explore symbols, intuition and
+      the questions that ask to be seen from another perspective.
     </p>
 
-    <a class="hero-cta" href="https://thezentarotco.etsy.com" target="_blank" rel="noopener">
-      Enter the shop
-      <span class="arrow">↗</span>
+    <!-- THE ONLY BUTTON ON THE WEBSITE -->
+    <a
+      class="buy-button"
+      href="https://thezentarotco.etsy.com"
+      target="_blank"
+      rel="noopener"
+    >
+      BUY ON ETSY
     </a>
+
   </div>
 
 </section>
 
 
-<section class="section">
-  <div class="section-inner">
+<!-- INTRO -->
+<section class="intro">
 
-    <div class="section-label">The experience</div>
+  <div class="label">
+    Since 2020
+  </div>
 
-    <h2 class="section-title">
-      Look beyond<br>what is visible.
-    </h2>
+  <h2>
+    Beyond what<br>
+    the eye can see.
+  </h2>
 
-    <p class="section-description">
-      Every reading begins with a question. The cards, symbols and
-      ancient systems become a language through which you can explore
-      possibilities, patterns and perspectives.
-    </p>
+  <p>
+    A space dedicated to symbolic readings and intuitive exploration.
+    Tarot, I Ching, Oracle and Sibille become different languages
+    for looking at a question from another perspective.
+  </p>
 
-    <div class="experience">
+</section>
 
-      <article class="glass">
-        <div class="glass-number">01</div>
-        <h3>Tarot</h3>
-        <p>
-          Symbolic archetypes, intuition and interpretation come together
-          to explore the energy surrounding your question.
-        </p>
-      </article>
 
-      <article class="glass">
-        <div class="glass-number">02</div>
-        <h3>Ancient systems</h3>
-        <p>
-          I Ching, Oracle and Sibille offer different symbolic languages
-          for looking at a situation from another perspective.
-        </p>
-      </article>
+<!-- SIGIL -->
+<section class="sigil-section">
 
+  <div>
+
+    <div class="label">
+      The language of symbols
     </div>
-
-  </div>
-</section>
-
-
-<section class="section sigil-section">
-
-  <div class="section-inner">
-
-    <div class="section-label">Since 2020</div>
-
-    <h2 class="section-title">
-      Symbols speak<br>in their own language.
-    </h2>
 
     <div class="sigil">
+
       <div class="sigil-ring"></div>
       <div class="sigil-ring"></div>
       <div class="sigil-ring"></div>
-      <div class="sigil-core"></div>
+
+      <div class="sigil-center"></div>
+
     </div>
 
-    <p class="section-description" style="margin:0 auto;">
-      There is no single way to ask a question.
-      Explore the shop and choose the reading that feels right for you.
+    <p style="
+      max-width:520px;
+      margin:auto;
+      padding:0 20px;
+      color:#958b9f;
+      font-size:13px;
+      line-height:1.9;
+    ">
+      Every question opens a different door.
+      The reading is the beginning of the journey.
     </p>
 
   </div>
@@ -901,142 +1189,207 @@ footer strong{
 </section>
 
 
+<!-- QUOTE -->
 <section class="quote">
-  <div class="quote-mark">“</div>
+
+  <div class="quote-symbol">
+    ✦
+  </div>
 
   <div class="quote-text">
-    The answer is not always hidden.
-    Sometimes we simply need another way to see it.
+    Sometimes the answer is not hidden.
+    We simply need another way to see it.
   </div>
 
   <div class="quote-small">
     The Zentarot Co. · Since 2020
   </div>
+
 </section>
 
 
+<!-- FINAL CTA -->
 <section class="final">
+
+  <div class="final-glow"></div>
 
   <div class="final-content">
 
-    <div class="section-label">Your question awaits</div>
+    <div class="label">
+      Your journey begins here
+    </div>
 
-    <h2>Enter the<br>unknown.</h2>
+    <h2>
+      ENTER<br>
+      THE UNKNOWN.
+    </h2>
 
     <p>
-      Discover the full collection of readings and explore
-      The Zentarot Co. on Etsy.
+      Discover The Zentarot Co. collection
+      and choose the reading that speaks to you.
     </p>
 
-    <a class="hero-cta" href="https://thezentarotco.etsy.com" target="_blank" rel="noopener">
-      Visit the shop
-      <span class="arrow">↗</span>
+    <!-- SAME ONLY BUTTON -->
+    <a
+      class="buy-button"
+      href="https://thezentarotco.etsy.com"
+      target="_blank"
+      rel="noopener"
+    >
+      BUY ON ETSY
     </a>
 
   </div>
 
 </section>
 
-</main>
-
 
 <footer>
-  <strong>THE ZENTAROT CO.</strong>
-  <span>Tarot · I Ching · Oracle · Sibille</span>
-  <span>© 2026</span>
+
+  <strong>
+    THE ZENTAROT CO.
+  </strong>
+
+  Tarot · I Ching · Oracle · Sibille · Since 2020
+
 </footer>
 
 
 <script>
 
-/* STARS */
+/* =========================================================
+   STAR FIELD
+========================================================= */
 
-const space = document.getElementById("space");
+const universe = document.getElementById("universe");
 
-for(let i=0;i<170;i++){
+for(let i = 0; i < 190; i++){
 
-  const star=document.createElement("div");
-  star.className="star";
+  const star = document.createElement("div");
 
-  star.style.left=Math.random()*100+"%";
-  star.style.top=Math.random()*100+"%";
-  star.style.animationDelay=(Math.random()*5)+"s";
-  star.style.animationDuration=(3+Math.random()*5)+"s";
+  star.className = "star";
 
-  const size=Math.random()*2.2+.5;
-  star.style.width=size+"px";
-  star.style.height=size+"px";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
 
-  space.appendChild(star);
+  const size = Math.random() * 2 + .5;
+
+  star.style.width = size + "px";
+  star.style.height = size + "px";
+
+  star.style.animationDelay =
+    Math.random() * 5 + "s";
+
+  star.style.animationDuration =
+    3 + Math.random() * 5 + "s";
+
+  universe.appendChild(star);
 }
 
 
-/* SUBTLE 3D MOUSE / TOUCH MOVEMENT */
+/* =========================================================
+   3D MOUSE MOVEMENT
+========================================================= */
 
-const universe=document.getElementById("universe");
+const world = document.getElementById("world");
 
-let targetX=0;
-let targetY=0;
-let currentX=0;
-let currentY=0;
+let targetX = 0;
+let targetY = 0;
 
-function animate3D(){
+let currentX = 0;
+let currentY = 0;
 
-  currentX += (targetX-currentX)*0.04;
-  currentY += (targetY-currentY)*0.04;
+function animateWorld(){
 
-  universe.style.transform=
-    `translate(-50%,-50%) rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+  currentX += (targetX - currentX) * .035;
+  currentY += (targetY - currentY) * .035;
 
-  requestAnimationFrame(animate3D);
+  world.style.transform =
+    `
+    translate(-50%,-50%)
+    rotateX(${currentY}deg)
+    rotateY(${currentX}deg)
+    `;
+
+  requestAnimationFrame(animateWorld);
 }
 
-animate3D();
+animateWorld();
 
-window.addEventListener("mousemove",(e)=>{
 
-  const x=(e.clientX/window.innerWidth-.5);
-  const y=(e.clientY/window.innerHeight-.5);
+window.addEventListener("mousemove",(event)=>{
 
-  targetX=x*8;
-  targetY=-y*8;
+  const x =
+    event.clientX / window.innerWidth - .5;
+
+  const y =
+    event.clientY / window.innerHeight - .5;
+
+  targetX = x * 10;
+  targetY = -y * 10;
 
 });
 
 
-window.addEventListener("touchmove",(e)=>{
+/* =========================================================
+   TOUCH MOVEMENT
+========================================================= */
 
-  if(!e.touches.length)return;
+window.addEventListener(
+  "touchmove",
+  (event)=>{
 
-  const x=e.touches[0].clientX/window.innerWidth-.5;
-  const y=e.touches[0].clientY/window.innerHeight-.5;
+    if(!event.touches.length) return;
 
-  targetX=x*7;
-  targetY=-y*7;
+    const x =
+      event.touches[0].clientX /
+      window.innerWidth - .5;
 
-},{passive:true});
+    const y =
+      event.touches[0].clientY /
+      window.innerHeight - .5;
+
+    targetX = x * 8;
+    targetY = -y * 8;
+
+  },
+  {passive:true}
+);
 
 
-/* BUTTON LIGHT */
+/* =========================================================
+   BUTTON GLOW
+========================================================= */
 
-document.querySelectorAll(".hero-cta").forEach(button=>{
+document.querySelectorAll(".buy-button").forEach(button => {
 
-  button.addEventListener("pointermove",(e)=>{
+  button.addEventListener("pointermove",(event)=>{
 
-    const rect=button.getBoundingClientRect();
+    const rect =
+      button.getBoundingClientRect();
 
-    const x=e.clientX-rect.left;
-    const y=e.clientY-rect.top;
+    const x =
+      event.clientX - rect.left;
 
-    button.style.background=
-      `radial-gradient(circle at ${x}px ${y}px, #c49aff 0%, #8c54ed 25%, #6332bd 70%)`;
+    const y =
+      event.clientY - rect.top;
+
+    button.style.background =
+      `
+      radial-gradient(
+        circle at ${x}px ${y}px,
+        #d0a8ff,
+        #9455ee 30%,
+        #6630bb 75%
+      )
+      `;
 
   });
 
   button.addEventListener("pointerleave",()=>{
 
-    button.style.background=
-      "linear-gradient(135deg,#a56eff,#6332bd)";
+    button.style.background =
+      "linear-gradient(135deg,#b27aff,#6932c4)";
 
   });
 
