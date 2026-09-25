@@ -1,2691 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08040f">
+<meta name="description" content="The Zentarot Co. — Tarot, I Ching, Oracle and Sibille readings. Since 2020.">
 
 <title>The Zentarot Co. — Beyond The Visible</title>
 
-<meta name="description"
-content="The Zentarot Co. — Personal Tarot, I Ching, Oracle and Sibille readings. Since 2020.">
-
-<meta name="theme-color" content="#05020b">
-
-<meta property="og:title" content="The Zentarot Co. — Beyond The Visible">
-<meta property="og:description" content="Personal Tarot, I Ching, Oracle and Sibille readings. Since 2020.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://dadda346sil-source.github.io/thezentarotco.github.io/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   THE ZENTAROT CO.
-   CINEMATIC 3D EXPERIENCE
-========================================================= */
-
 :root{
-    --bg:#030107;
-    --bg2:#08030f;
-    --purple:#9b63ff;
-    --purple2:#d5b6ff;
-    --white:#f8f4ff;
-    --muted:rgba(248,244,255,.58);
-    --line:rgba(220,190,255,.14);
+  --bg:#07030d;
+  --bg2:#0d0618;
+  --purple:#8f5cff;
+  --purple2:#c59aff;
+  --violet:#5e2eb8;
+  --white:#f7f2ff;
+  --muted:#aaa0b8;
+  --line:rgba(205,170,255,.16);
+  --glass:rgba(20,10,35,.52);
+  --shadow:0 30px 100px rgba(88,35,170,.28);
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    background:var(--bg);
-    color:var(--white);
-    font-family:Inter,sans-serif;
-    overflow-x:hidden;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter, sans-serif;
+  overflow-x:hidden;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:100;
+  opacity:.08;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
 }
 
-button{
-    font:inherit;
-}
-
-/* =========================================================
-   GLOBAL SPACE
-========================================================= */
-
-.space{
-    position:fixed;
-    inset:0;
-    z-index:-20;
-    overflow:hidden;
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(111,55,190,.22),
-            transparent 27%
-        ),
-        radial-gradient(
-            circle at 15% 80%,
-            rgba(70,25,150,.18),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 15%,
-            rgba(170,100,255,.12),
-            transparent 25%
-        ),
-        #030107;
-}
-
-.space::before{
-    content:"";
-    position:absolute;
-    width:75vw;
-    height:75vw;
-    left:50%;
-    top:35%;
-    transform:translate(-50%,-50%);
-    border-radius:50%;
-    background:
-        radial-gradient(
-            circle,
-            rgba(180,120,255,.09),
-            transparent 65%
-        );
-    filter:blur(15px);
-    animation:universePulse 9s ease-in-out infinite;
-}
-
-@keyframes universePulse{
-    0%,100%{
-        transform:translate(-50%,-50%) scale(.9);
-        opacity:.65;
-    }
-
-    50%{
-        transform:translate(-50%,-50%) scale(1.12);
-        opacity:1;
-    }
-}
-
-/* =========================================================
-   STARS
-========================================================= */
-
-.stars{
-    position:fixed;
-    inset:0;
-    z-index:-15;
-    pointer-events:none;
+#space{
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(108,52,190,.16),transparent 28%),
+    radial-gradient(circle at 15% 80%,rgba(71,28,130,.12),transparent 25%),
+    radial-gradient(circle at 85% 15%,rgba(125,65,220,.10),transparent 25%),
+    linear-gradient(180deg,#08040f 0%,#050208 100%);
 }
 
 .star{
-    position:absolute;
-    width:2px;
-    height:2px;
-    border-radius:50%;
-    background:#fff;
-    opacity:.3;
-    animation:twinkle var(--duration) ease-in-out infinite;
+  position:absolute;
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  background:#fff;
+  opacity:.5;
+  animation:twinkle 4s ease-in-out infinite;
 }
 
 @keyframes twinkle{
-    0%,100%{
-        opacity:.1;
-        transform:scale(.5);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.7);
-    }
+  0%,100%{opacity:.15;transform:scale(.7)}
+  50%{opacity:.9;transform:scale(1.5)}
 }
 
-/* =========================================================
-   FLOATING DUST
-========================================================= */
-
-.dust{
-    position:fixed;
-    inset:0;
-    z-index:-12;
-    pointer-events:none;
-    background-image:
-        radial-gradient(circle,rgba(255,255,255,.35) 0 1px,transparent 1px);
-    background-size:150px 150px;
-    opacity:.12;
-    animation:dustMove 30s linear infinite;
-}
-
-@keyframes dustMove{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-150px);
-    }
-}
-
-/* =========================================================
-   GRAIN
-========================================================= */
-
-.grain{
-    position:fixed;
-    inset:-50%;
-    z-index:100;
-    pointer-events:none;
-    opacity:.035;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    animation:grain .25s steps(2) infinite;
-}
-
-@keyframes grain{
-    0%{transform:translate(0,0)}
-    25%{transform:translate(2%,-1%)}
-    50%{transform:translate(-1%,2%)}
-    75%{transform:translate(1%,1%)}
-    100%{transform:translate(-2%,-1%)}
-}
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* NAV */
 
 nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:50;
-    padding:22px 5vw;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:linear-gradient(
-        to bottom,
-        rgba(3,1,7,.94),
-        rgba(3,1,7,.35),
-        transparent
-    );
-    backdrop-filter:blur(8px);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:82px;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6vw;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  background:rgba(6,3,11,.38);
+  backdrop-filter:blur(18px);
 }
 
 .logo{
-    font-family:Cinzel,serif;
-    font-size:13px;
-    letter-spacing:5px;
+  font-family:Cinzel,serif;
+  font-size:16px;
+  letter-spacing:4px;
+  color:#fff;
 }
 
-.nav-right{
-    display:flex;
-    align-items:center;
-    gap:24px;
+.logo span{
+  color:var(--purple2);
 }
 
-.nav-link{
-    font-size:9px;
-    letter-spacing:2px;
-    opacity:.55;
-    transition:.3s;
+.nav-enter{
+  text-decoration:none;
+  color:#fff;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border:1px solid var(--line);
+  padding:11px 18px;
+  border-radius:100px;
+  transition:.3s;
 }
 
-.nav-link:hover{
-    opacity:1;
+.nav-enter:hover{
+  background:rgba(143,92,255,.15);
+  border-color:rgba(197,154,255,.5);
 }
 
-.nav-etsy{
-    padding:11px 20px;
-    border:1px solid rgba(255,255,255,.22);
-    border-radius:30px;
-    font-size:9px;
-    letter-spacing:2px;
-    background:rgba(255,255,255,.025);
-    transition:.4s;
-}
-
-.nav-etsy:hover{
-    background:#fff;
-    color:#08030d;
-    box-shadow:
-        0 0 20px rgba(210,170,255,.3),
-        0 0 60px rgba(140,80,255,.2);
-}
-
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero{
-    min-height:100svh;
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:100px 20px 70px;
-    perspective:1600px;
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:110px 20px 70px;
+  perspective:1400px;
+  overflow:hidden;
 }
 
-.hero-scene{
-    position:relative;
-    width:min(1200px,100%);
-    height:760px;
-    transform-style:preserve-3d;
-    transition:transform .2s ease-out;
+.hero-content{
+  position:relative;
+  z-index:15;
+  text-align:center;
+  pointer-events:none;
 }
 
-/* =========================================================
-   CENTRAL PORTAL
-========================================================= */
+.eyebrow{
+  font-size:10px;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:#bda8d4;
+  margin-bottom:23px;
+}
+
+h1{
+  font-family:Cinzel,serif;
+  font-weight:500;
+  font-size:clamp(45px,8vw,100px);
+  letter-spacing:8px;
+  line-height:.98;
+  text-shadow:
+    0 0 30px rgba(184,137,255,.22),
+    0 15px 70px rgba(0,0,0,.7);
+}
+
+h1 span{
+  display:block;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(220,193,255,.72);
+  text-shadow:none;
+}
+
+.hero-sub{
+  max-width:570px;
+  margin:28px auto 0;
+  color:#b8adbf;
+  font-size:13px;
+  line-height:1.9;
+  font-weight:300;
+}
+
+.hero-cta{
+  pointer-events:auto;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:34px;
+  padding:16px 27px;
+  border-radius:100px;
+  background:linear-gradient(135deg,#a56eff,#6332bd);
+  color:#fff;
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  box-shadow:
+    0 0 30px rgba(143,92,255,.32),
+    0 15px 45px rgba(0,0,0,.35);
+  transition:.35s;
+}
+
+.hero-cta:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 0 50px rgba(143,92,255,.55),
+    0 20px 60px rgba(0,0,0,.5);
+}
+
+.hero-cta .arrow{
+  font-size:15px;
+}
+
+/* 3D UNIVERSE */
+
+.universe{
+  position:absolute;
+  width:min(800px,100vw);
+  height:min(800px,100vw);
+  left:50%;
+  top:52%;
+  transform:translate(-50%,-50%);
+  transform-style:preserve-3d;
+  pointer-events:none;
+}
 
 .portal{
-    position:absolute;
-    left:50%;
-    top:50%;
-    width:420px;
-    height:420px;
-    transform:
-        translate(-50%,-50%)
-        translateZ(-80px);
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            rgba(255,255,255,.85),
-            rgba(210,180,255,.4) 5%,
-            rgba(125,65,210,.25) 25%,
-            rgba(40,10,75,.2) 52%,
-            transparent 72%
-        );
-
-    box-shadow:
-        0 0 70px rgba(155,90,255,.32),
-        0 0 180px rgba(100,40,190,.22),
-        inset 0 0 70px rgba(255,255,255,.08);
-
-    animation:
-        portalFloat 8s ease-in-out infinite,
-        portalPulse 6s ease-in-out infinite;
+  position:absolute;
+  width:360px;
+  height:360px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 45% 40%,
+      rgba(255,255,255,.22) 0%,
+      rgba(181,115,255,.18) 7%,
+      rgba(107,48,190,.18) 18%,
+      rgba(32,11,59,.5) 48%,
+      transparent 69%);
+  box-shadow:
+    0 0 40px rgba(132,70,220,.3),
+    0 0 120px rgba(109,49,184,.18),
+    inset 0 0 80px rgba(178,116,255,.14);
+  animation:portalPulse 7s ease-in-out infinite;
 }
 
-.portal::before{
-    content:"";
-    position:absolute;
-    inset:-25px;
-    border-radius:50%;
-    border:1px solid rgba(205,165,255,.22);
-    box-shadow:
-        0 0 50px rgba(160,90,255,.12);
-    animation:portalSpin 22s linear infinite;
+.portal:before,
+.portal:after{
+  content:"";
+  position:absolute;
+  inset:15%;
+  border-radius:50%;
+  border:1px solid rgba(211,177,255,.3);
+  box-shadow:
+    0 0 35px rgba(170,108,255,.18),
+    inset 0 0 35px rgba(170,108,255,.12);
 }
 
-.portal::after{
-    content:"";
-    position:absolute;
-    inset:35px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.08);
-    animation:portalSpinReverse 14s linear infinite;
-}
-
-@keyframes portalFloat{
-    0%,100%{
-        transform:
-            translate(-50%,-50%)
-            translateZ(-80px)
-            translateY(12px);
-    }
-
-    50%{
-        transform:
-            translate(-50%,-50%)
-            translateZ(-80px)
-            translateY(-15px);
-    }
+.portal:after{
+  inset:27%;
+  border-color:rgba(220,191,255,.4);
+  animation:spin 15s linear infinite reverse;
 }
 
 @keyframes portalPulse{
-    50%{
-        box-shadow:
-            0 0 110px rgba(155,90,255,.4),
-            0 0 240px rgba(100,40,190,.25),
-            inset 0 0 90px rgba(255,255,255,.1);
-    }
-}
-
-@keyframes portalSpin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-@keyframes portalSpinReverse{
-    to{
-        transform:rotate(-360deg);
-    }
-}
-
-/* =========================================================
-   ORBITS
-========================================================= */
-
-.orbit{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform-style:preserve-3d;
-    border-radius:50%;
-    border:1px solid rgba(190,140,255,.16);
-    pointer-events:none;
-}
-
-.orbit.one{
-    width:760px;
-    height:280px;
-    transform:
-        translate(-50%,-50%)
-        rotateX(64deg)
-        rotateZ(-18deg);
-    animation:orbitA 18s linear infinite;
-}
-
-.orbit.two{
-    width:900px;
-    height:340px;
-    transform:
-        translate(-50%,-50%)
-        rotateX(70deg)
-        rotateZ(35deg);
-    border-color:rgba(255,255,255,.07);
-    animation:orbitB 25s linear infinite;
-}
-
-.orbit.three{
-    width:560px;
-    height:560px;
-    transform:
-        translate(-50%,-50%)
-        rotateX(72deg);
-    border-color:rgba(180,120,255,.1);
-    animation:orbitC 32s linear infinite;
-}
-
-@keyframes orbitA{
-    to{
-        transform:
-            translate(-50%,-50%)
-            rotateX(64deg)
-            rotateZ(342deg);
-    }
-}
-
-@keyframes orbitB{
-    to{
-        transform:
-            translate(-50%,-50%)
-            rotateX(70deg)
-            rotateZ(395deg);
-    }
-}
-
-@keyframes orbitC{
-    to{
-        transform:
-            translate(-50%,-50%)
-            rotateX(72deg)
-            rotateZ(360deg);
-    }
-}
-
-/* =========================================================
-   ORBIT PARTICLES
-========================================================= */
-
-.orbit-dot{
-    position:absolute;
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#e8d8ff;
-    box-shadow:
-        0 0 12px #b982ff,
-        0 0 35px rgba(170,100,255,.7);
-}
-
-.dot1{
-    left:8%;
-    top:42%;
-}
-
-.dot2{
-    right:13%;
-    top:25%;
-}
-
-.dot3{
-    right:30%;
-    bottom:5%;
-}
-
-.dot4{
-    left:18%;
-    bottom:18%;
-}
-
-/* =========================================================
-   3D TAROT CARDS
-========================================================= */
-
-.hero-card{
-    position:absolute;
-    width:105px;
-    height:170px;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,.35);
-
-    background:
-        linear-gradient(
-            145deg,
-            #321653,
-            #08030d 55%,
-            #241037
-        );
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,.6),
-        0 0 30px rgba(140,75,230,.2),
-        inset 0 0 30px rgba(255,255,255,.04);
-
-    transform-style:preserve-3d;
-
-    transition:
-        transform .25s ease,
-        filter .25s ease;
-}
-
-.hero-card::before{
-    content:"";
-    position:absolute;
-    inset:9px;
-    border:1px solid rgba(255,255,255,.14);
-    border-radius:6px;
-}
-
-.hero-card::after{
-    content:"✦";
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    font-size:34px;
-    color:rgba(220,190,255,.7);
-    text-shadow:
-        0 0 15px rgba(190,130,255,.8),
-        0 0 40px rgba(140,80,255,.4);
-}
-
-.card-a{
-    left:11%;
-    top:45%;
-    animation:cardFloatA 8s ease-in-out infinite;
-}
-
-.card-b{
-    right:12%;
-    top:35%;
-    animation:cardFloatB 9s ease-in-out infinite;
-}
-
-.card-c{
-    left:24%;
-    top:12%;
-    transform:scale(.72) rotate(-18deg);
-    opacity:.65;
-    animation:cardFloatC 10s ease-in-out infinite;
-}
-
-.card-d{
-    right:25%;
-    bottom:7%;
-    transform:scale(.65) rotate(17deg);
-    opacity:.5;
-    animation:cardFloatD 11s ease-in-out infinite;
-}
-
-@keyframes cardFloatA{
-    0%,100%{
-        transform:
-            translate3d(0,20px,80px)
-            rotateX(8deg)
-            rotateY(24deg)
-            rotateZ(-18deg);
-    }
-
-    50%{
-        transform:
-            translate3d(-25px,-30px,140px)
-            rotateX(-5deg)
-            rotateY(-12deg)
-            rotateZ(-8deg);
-    }
-}
-
-@keyframes cardFloatB{
-    0%,100%{
-        transform:
-            translate3d(0,20px,40px)
-            rotateX(-5deg)
-            rotateY(-25deg)
-            rotateZ(17deg);
-    }
-
-    50%{
-        transform:
-            translate3d(30px,-35px,150px)
-            rotateX(8deg)
-            rotateY(12deg)
-            rotateZ(8deg);
-    }
-}
-
-@keyframes cardFloatC{
-    50%{
-        transform:
-            translate3d(-35px,35px,80px)
-            scale(.8)
-            rotate(-5deg);
-    }
-}
-
-@keyframes cardFloatD{
-    50%{
-        transform:
-            translate3d(25px,-25px,100px)
-            scale(.72)
-            rotate(28deg);
-    }
-}
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.hero-content{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%) translateZ(180px);
-    width:min(900px,95%);
-    text-align:center;
-    z-index:10;
-}
-
-.since{
-    font-size:9px;
-    letter-spacing:7px;
-    opacity:.55;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-family:Cinzel,serif;
-    font-weight:500;
-    font-size:clamp(52px,9vw,110px);
-    line-height:.88;
-    letter-spacing:9px;
-
-    text-shadow:
-        0 0 30px rgba(205,160,255,.3),
-        0 0 100px rgba(110,50,190,.3);
-
-    animation:titleReveal 1.5s cubic-bezier(.16,1,.3,1);
-}
-
-@keyframes titleReveal{
-    from{
-        opacity:0;
-        transform:translateY(35px) scale(.9);
-        letter-spacing:25px;
-        filter:blur(12px);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-        letter-spacing:9px;
-        filter:blur(0);
-    }
-}
-
-.hero-subtitle{
-    margin:28px auto 0;
-    max-width:590px;
-    font-size:14px;
-    line-height:1.9;
-    font-weight:300;
-    color:var(--muted);
-}
-
-.hero-buttons{
-    margin-top:36px;
-    display:flex;
-    justify-content:center;
-    gap:14px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-width:190px;
-    padding:16px 27px;
-    border-radius:50px;
-    font-size:9px;
-    letter-spacing:3px;
-    transition:.4s;
-}
-
-.btn-primary{
-    color:#09040e;
-    background:#f6efff;
-    box-shadow:
-        0 0 25px rgba(220,180,255,.15);
-}
-
-.btn-primary:hover{
-    transform:translateY(-4px) scale(1.04);
-    box-shadow:
-        0 0 35px rgba(220,180,255,.4),
-        0 0 100px rgba(140,80,255,.25);
-}
-
-.btn-secondary{
-    border:1px solid rgba(255,255,255,.23);
-    background:rgba(255,255,255,.025);
-}
-
-.btn-secondary:hover{
-    transform:translateY(-4px);
-    background:rgba(255,255,255,.08);
-}
-
-/* =========================================================
-   SCROLL
-========================================================= */
-
-.scroll-indicator{
-    position:absolute;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-    text-align:center;
-    font-size:8px;
-    letter-spacing:5px;
-    opacity:.3;
-}
-
-.scroll-line{
-    width:1px;
-    height:50px;
-    margin:12px auto 0;
-    background:linear-gradient(#fff,transparent);
-    animation:scrollLine 2s infinite;
-}
-
-@keyframes scrollLine{
-    0%{transform:scaleY(0);transform-origin:top}
-    50%{transform:scaleY(1);transform-origin:top}
-    51%{transform-origin:bottom}
-    100%{transform:scaleY(0);transform-origin:bottom}
-}
-
-/* =========================================================
-   MARQUEE
-========================================================= */
-
-.marquee{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:21px 0;
-    overflow:hidden;
-    white-space:nowrap;
-    background:rgba(255,255,255,.015);
-}
-
-.marquee-track{
-    display:inline-block;
-    font-family:Cinzel,serif;
-    font-size:11px;
-    letter-spacing:6px;
-    opacity:.4;
-    animation:marquee 30s linear infinite;
-}
-
-@keyframes marquee{
-    to{
-        transform:translateX(-50%);
-    }
-}
-
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
-section{
-    position:relative;
-    overflow:hidden;
-}
-
-.kicker{
-    font-size:9px;
-    letter-spacing:5px;
-    opacity:.42;
-    margin-bottom:24px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:65px;
-}
-
-.section-title h2{
-    font-family:Cinzel,serif;
-    font-size:clamp(38px,6vw,68px);
-    font-weight:400;
-}
-
-.section-title p{
-    margin-top:16px;
-    font-size:13px;
-    opacity:.45;
-}
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.intro{
-    padding:170px 7vw;
-    text-align:center;
-}
-
-.intro h2{
-    max-width:950px;
-    margin:auto;
-    font-family:Cinzel,serif;
-    font-size:clamp(38px,6vw,76px);
-    font-weight:400;
-    line-height:1.12;
-}
-
-.intro p{
-    max-width:650px;
-    margin:30px auto 0;
-    font-size:14px;
-    line-height:2;
-    color:var(--muted);
-}
-
-/* =========================================================
-   READINGS
-========================================================= */
-
-.readings{
-    padding:100px 5vw 160px;
-}
-
-.reading-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:24px;
-}
-
-.reading{
-    min-height:430px;
-    position:relative;
-    padding:35px;
-    border:1px solid var(--line);
-    border-radius:22px;
-
-    background:
-        radial-gradient(
-            circle at 70% 30%,
-            rgba(125,65,210,.13),
-            transparent 40%
-        ),
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
-        );
-
-    overflow:hidden;
-    transition:.5s;
-}
-
-.reading::before{
-    content:"";
-    position:absolute;
-    width:220px;
-    height:220px;
-    right:-80px;
-    top:-80px;
-    border-radius:50%;
-    background:rgba(145,85,255,.1);
-    filter:blur(50px);
-    transition:.6s;
-}
-
-.reading:hover{
-    transform:translateY(-10px);
-    border-color:rgba(210,175,255,.35);
-    box-shadow:
-        0 35px 90px rgba(50,20,100,.3),
-        inset 0 0 40px rgba(255,255,255,.025);
-}
-
-.reading:hover::before{
-    transform:scale(1.5);
-}
-
-.reading-number{
-    font-family:Cinzel,serif;
-    font-size:10px;
-    letter-spacing:3px;
-    opacity:.35;
-}
-
-.reading h3{
-    margin-top:12px;
-    font-family:Cinzel,serif;
-    font-size:34px;
-    font-weight:400;
-}
-
-.reading p{
-    max-width:390px;
-    margin-top:15px;
-    font-size:13px;
-    line-height:1.85;
-    color:var(--muted);
-}
-
-.reading-link{
-    position:absolute;
-    left:35px;
-    bottom:30px;
-    padding:12px 20px;
-    border:1px solid rgba(255,255,255,.22);
-    border-radius:30px;
-    font-size:9px;
-    letter-spacing:2px;
-    transition:.3s;
-}
-
-.reading-link:hover{
-    color:#09040e;
-    background:#fff;
-}
-
-/* =========================================================
-   READING VISUALS
-========================================================= */
-
-.visual{
-    position:absolute;
-    right:10px;
-    bottom:0;
-    width:250px;
-    height:250px;
-}
-
-/* TAROT */
-
-.tarot-stack{
-    position:absolute;
-    right:55px;
-    bottom:35px;
-    width:100px;
-    height:160px;
-    transform-style:preserve-3d;
-}
-
-.tarot-mini{
-    position:absolute;
-    inset:0;
-    border-radius:9px;
-    border:1px solid rgba(255,255,255,.25);
-    background:
-        linear-gradient(145deg,#341852,#08030d 55%,#251038);
-    box-shadow:0 20px 40px rgba(0,0,0,.5);
-}
-
-.tarot-mini::before{
-    content:"✦";
-    position:absolute;
-    inset:9px;
-    border:1px solid rgba(255,255,255,.12);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:28px;
-    color:#c9a4ff;
-}
-
-.tarot-mini:nth-child(1){
-    transform:rotate(-17deg) translateX(-28px);
-}
-
-.tarot-mini:nth-child(2){
-    transform:rotate(-4deg);
-}
-
-.tarot-mini:nth-child(3){
-    transform:rotate(14deg) translateX(27px);
-}
-
-.tarot-stack{
-    animation:tarotFloat 5s ease-in-out infinite;
-}
-
-@keyframes tarotFloat{
-    50%{
-        transform:translateY(-20px) rotateY(8deg);
-    }
-}
-
-/* I CHING */
-
-.iching-book{
-    position:absolute;
-    width:205px;
-    height:145px;
-    left:20px;
-    bottom:45px;
-    display:flex;
-    perspective:600px;
-    transform:rotateX(55deg) rotateZ(-3deg);
-    filter:drop-shadow(0 30px 25px rgba(0,0,0,.5));
-}
-
-.book-page{
-    width:50%;
-    height:100%;
-    background:
-        linear-gradient(135deg,#38213f,#0b0610);
-    border:1px solid rgba(255,255,255,.18);
-}
-
-.book-page.left{
-    transform-origin:right;
-    animation:bookLeft 5s ease-in-out infinite;
-}
-
-.book-page.right{
-    transform-origin:left;
-    animation:bookRight 5s ease-in-out infinite;
-}
-
-@keyframes bookLeft{
-    50%{transform:rotateY(22deg)}
-}
-
-@keyframes bookRight{
-    50%{transform:rotateY(-22deg)}
-}
-
-.hexagram{
-    position:absolute;
-    left:52px;
-    top:42px;
-    width:100px;
-}
-
-.hexagram span{
-    display:block;
-    height:4px;
-    margin:8px 0;
-    background:rgba(235,215,255,.7);
-    box-shadow:0 0 12px rgba(190,140,255,.35);
-}
-
-.hexagram span:nth-child(2),
-.hexagram span:nth-child(5){
-    width:38px;
-}
-
-/* ORACLE */
-
-.oracle-orb{
-    position:absolute;
-    width:150px;
-    height:150px;
-    right:45px;
-    bottom:45px;
-    border-radius:50%;
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #fff,
-            rgba(220,190,255,.65) 7%,
-            rgba(110,50,190,.35) 38%,
-            transparent 72%
-        );
-    box-shadow:
-        0 0 60px rgba(170,100,255,.35),
-        inset 0 0 35px rgba(255,255,255,.12);
-    animation:orbFloat 5s ease-in-out infinite;
-}
-
-.oracle-orb::before{
-    content:"";
-    position:absolute;
-    inset:-22px;
-    border-radius:50%;
-    border:1px solid rgba(200,150,255,.2);
-    animation:spin 9s linear infinite;
-}
-
-.oracle-orb::after{
-    content:"";
-    position:absolute;
-    inset:-40px;
-    border-radius:50%;
-    border:1px dashed rgba(200,150,255,.12);
-    animation:spinReverse 15s linear infinite;
-}
-
-@keyframes orbFloat{
-    50%{
-        transform:translateY(-20px) scale(1.06);
-    }
+  0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.75}
+  50%{transform:translate(-50%,-50%) scale(1.05);opacity:1}
 }
 
 @keyframes spin{
-    to{transform:rotate(360deg)}
+  to{transform:rotate(360deg)}
 }
 
-@keyframes spinReverse{
-    to{transform:rotate(-360deg)}
+.orbit{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:650px;
+  height:650px;
+  transform:translate(-50%,-50%) rotateX(65deg) rotateZ(-15deg);
+  border:1px solid rgba(190,145,255,.14);
+  border-radius:50%;
+  box-shadow:0 0 50px rgba(120,60,220,.06);
 }
 
-/* SIBILLE */
-
-.sibille-fan{
-    position:absolute;
-    width:150px;
-    height:190px;
-    right:45px;
-    bottom:20px;
-    animation:fanFloat 5s ease-in-out infinite;
+.orbit.two{
+  width:530px;
+  height:530px;
+  transform:translate(-50%,-50%) rotateX(70deg) rotateZ(48deg);
+  border-color:rgba(190,145,255,.11);
 }
 
-.sib-card{
-    position:absolute;
-    width:72px;
-    height:118px;
-    bottom:0;
-    left:39px;
-    border-radius:7px;
-    border:1px solid rgba(255,255,255,.22);
-    background:linear-gradient(#2a173b,#08030d);
-    transform-origin:bottom center;
-    box-shadow:0 15px 30px rgba(0,0,0,.5);
+.orbit.three{
+  width:730px;
+  height:730px;
+  transform:translate(-50%,-50%) rotateX(72deg) rotateZ(100deg);
+  border-color:rgba(190,145,255,.08);
 }
 
-.sib-card::before{
-    content:"✦";
-    position:absolute;
-    inset:7px;
-    border:1px solid rgba(255,255,255,.1);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:rgba(210,175,255,.55);
+.orbit-dot{
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#d8bdff;
+  box-shadow:0 0 20px #9d64ff;
 }
 
-.sib-card:nth-child(1){
-    transform:rotate(-32deg);
+.dot1{top:12%;left:15%}
+.dot2{right:7%;top:42%}
+.dot3{bottom:9%;left:38%}
+.dot4{top:35%;left:3%}
+
+/* CARDS */
+
+.tarot{
+  position:absolute;
+  width:112px;
+  height:185px;
+  border-radius:8px;
+  transform-style:preserve-3d;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.6),
+    0 0 35px rgba(128,72,210,.15);
+  overflow:hidden;
+  border:1px solid rgba(220,190,255,.38);
+  background:#140a22;
 }
 
-.sib-card:nth-child(2){
-    transform:rotate(-16deg);
+.tarot:before{
+  content:"✦";
+  position:absolute;
+  inset:8px;
+  border:1px solid rgba(216,182,255,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Cinzel,serif;
+  font-size:48px;
+  color:#d9bcff;
+  background:
+    radial-gradient(circle,rgba(135,75,230,.4),transparent 55%),
+    repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 2px,transparent 2px 6px);
 }
 
-.sib-card:nth-child(3){
-    transform:rotate(0);
+.tarot:after{
+  content:"THE ZENTAROT CO.";
+  position:absolute;
+  bottom:17px;
+  left:0;
+  right:0;
+  text-align:center;
+  font-family:Cinzel,serif;
+  font-size:6px;
+  letter-spacing:2px;
+  color:#d8c1ef;
 }
 
-.sib-card:nth-child(4){
-    transform:rotate(16deg);
+.card-a{
+  left:8%;
+  top:28%;
+  transform:rotateY(26deg) rotateZ(-17deg) translateZ(80px);
+  animation:floatA 7s ease-in-out infinite;
 }
 
-.sib-card:nth-child(5){
-    transform:rotate(32deg);
+.card-b{
+  right:8%;
+  top:21%;
+  transform:rotateY(-27deg) rotateZ(15deg) translateZ(100px);
+  animation:floatB 8s ease-in-out infinite;
 }
 
-@keyframes fanFloat{
-    50%{
-        transform:translateY(-15px);
-    }
+.card-c{
+  left:19%;
+  bottom:8%;
+  transform:rotateY(35deg) rotateZ(9deg) translateZ(50px);
+  animation:floatC 9s ease-in-out infinite;
 }
 
-/* =========================================================
-   QUOTE
-========================================================= */
-
-.quote-section{
-    padding:180px 7vw;
-    text-align:center;
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(120,55,190,.15),
-            transparent 58%
-        );
+.card-d{
+  right:17%;
+  bottom:7%;
+  transform:rotateY(-34deg) rotateZ(-12deg) translateZ(70px);
+  animation:floatD 7.5s ease-in-out infinite;
 }
+
+@keyframes floatA{
+  0%,100%{margin-top:0}
+  50%{margin-top:-28px}
+}
+@keyframes floatB{
+  0%,100%{margin-top:0}
+  50%{margin-top:24px}
+}
+@keyframes floatC{
+  0%,100%{margin-top:0}
+  50%{margin-top:-20px}
+}
+@keyframes floatD{
+  0%,100%{margin-top:0}
+  50%{margin-top:25px}
+}
+
+/* SECTION */
+
+.section{
+  position:relative;
+  padding:130px 7vw;
+}
+
+.section-inner{
+  max-width:1150px;
+  margin:auto;
+}
+
+.section-label{
+  color:#a987c7;
+  text-transform:uppercase;
+  letter-spacing:5px;
+  font-size:9px;
+  margin-bottom:17px;
+}
+
+.section-title{
+  font-family:Cinzel,serif;
+  font-weight:400;
+  font-size:clamp(30px,5vw,55px);
+  letter-spacing:2px;
+  line-height:1.15;
+}
+
+.section-description{
+  max-width:570px;
+  color:#9f96a9;
+  line-height:1.9;
+  font-size:13px;
+  margin-top:22px;
+}
+
+/* GLASS EXPERIENCE */
+
+.experience{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin-top:65px;
+}
+
+.glass{
+  position:relative;
+  min-height:330px;
+  padding:35px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:
+    linear-gradient(145deg,rgba(48,22,75,.35),rgba(10,5,18,.55));
+  backdrop-filter:blur(15px);
+  overflow:hidden;
+  transition:.45s;
+  transform-style:preserve-3d;
+}
+
+.glass:hover{
+  transform:translateY(-8px) rotateX(2deg) rotateY(-2deg);
+  border-color:rgba(198,157,255,.34);
+  box-shadow:var(--shadow);
+}
+
+.glass:before{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  right:-100px;
+  top:-100px;
+  border-radius:50%;
+  background:rgba(133,69,230,.12);
+  filter:blur(25px);
+}
+
+.glass-number{
+  font-family:Cinzel,serif;
+  font-size:12px;
+  color:#9874b7;
+}
+
+.glass h3{
+  margin-top:70px;
+  font-family:Cinzel,serif;
+  font-weight:400;
+  font-size:25px;
+}
+
+.glass p{
+  color:#9990a4;
+  font-size:12px;
+  line-height:1.8;
+  margin-top:14px;
+  max-width:410px;
+}
+
+/* CENTER SIGIL */
+
+.sigil-section{
+  text-align:center;
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.sigil{
+  position:relative;
+  width:340px;
+  height:340px;
+  margin:50px auto;
+  transform-style:preserve-3d;
+  animation:sigilFloat 6s ease-in-out infinite;
+}
+
+@keyframes sigilFloat{
+  50%{transform:translateY(-15px) rotateX(5deg)}
+}
+
+.sigil-ring{
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(185,139,255,.3);
+  border-radius:50%;
+  box-shadow:0 0 70px rgba(129,64,215,.15);
+}
+
+.sigil-ring:nth-child(2){
+  inset:35px;
+  transform:rotate(35deg) rotateX(65deg);
+  border-style:dashed;
+}
+
+.sigil-ring:nth-child(3){
+  inset:75px;
+  transform:rotate(-35deg) rotateX(65deg);
+}
+
+.sigil-core{
+  position:absolute;
+  inset:105px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 40% 35%,#d4b4ff, #7d3bd0 25%,#241037 65%,#0b0511);
+  box-shadow:
+    0 0 40px rgba(157,91,255,.45),
+    0 0 110px rgba(110,48,190,.25);
+}
+
+.sigil-core:after{
+  content:"✦";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+  color:white;
+  text-shadow:0 0 25px #fff;
+}
+
+/* QUOTE */
 
 .quote{
-    max-width:900px;
-    margin:auto;
-    font-family:Cinzel,serif;
-    font-size:clamp(30px,5vw,60px);
-    line-height:1.3;
+  text-align:center;
+  padding:150px 20px;
+}
+
+.quote-mark{
+  font-family:Cinzel,serif;
+  font-size:60px;
+  color:#7e4bb2;
+  line-height:.5;
+}
+
+.quote-text{
+  max-width:800px;
+  margin:30px auto;
+  font-family:Cinzel,serif;
+  font-size:clamp(25px,4vw,45px);
+  line-height:1.35;
+  font-weight:400;
 }
 
 .quote-small{
-    margin-top:30px;
-    font-size:9px;
-    letter-spacing:5px;
-    opacity:.35;
+  color:#887e91;
+  font-size:9px;
+  letter-spacing:4px;
+  text-transform:uppercase;
 }
 
-/* =========================================================
-   PROCESS
-========================================================= */
-
-.process{
-    padding:130px 5vw;
-}
-
-.process-grid{
-    max-width:1100px;
-    margin:60px auto 0;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.step{
-    padding:30px 20px;
-    border-top:1px solid rgba(255,255,255,.18);
-}
-
-.step-number{
-    font-family:Cinzel,serif;
-    font-size:32px;
-    opacity:.28;
-}
-
-.step h3{
-    margin-top:22px;
-    font-size:12px;
-    letter-spacing:2px;
-    font-weight:400;
-}
-
-.step p{
-    margin-top:12px;
-    font-size:12px;
-    line-height:1.8;
-    color:var(--muted);
-}
-
-/* =========================================================
-   COMING SOON
-========================================================= */
-
-.coming{
-    padding:170px 7vw;
-    text-align:center;
-}
-
-.coming::before{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:50%;
-    width:600px;
-    height:600px;
-    transform:translate(-50%,-50%);
-    border-radius:50%;
-    background:
-        radial-gradient(
-            circle,
-            rgba(135,70,215,.17),
-            transparent 65%
-        );
-    animation:comingGlow 6s ease-in-out infinite;
-}
-
-@keyframes comingGlow{
-    50%{
-        transform:translate(-50%,-50%) scale(1.25);
-        opacity:.6;
-    }
-}
-
-.coming-content{
-    position:relative;
-    z-index:2;
-}
-
-.coming h2{
-    font-family:Cinzel,serif;
-    font-size:clamp(45px,8vw,90px);
-    font-weight:400;
-    line-height:.95;
-}
-
-.coming p{
-    max-width:600px;
-    margin:28px auto;
-    font-size:14px;
-    line-height:2;
-    color:var(--muted);
-}
-
-.coming-line{
-    font-size:9px;
-    letter-spacing:5px;
-    opacity:.35;
-}
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about{
-    padding:160px 7vw;
-    text-align:center;
-}
-
-.about-box{
-    max-width:850px;
-    margin:auto;
-}
-
-.about h2{
-    font-family:Cinzel,serif;
-    font-size:clamp(40px,6vw,70px);
-    font-weight:400;
-}
-
-.about p{
-    max-width:650px;
-    margin:30px auto;
-    font-size:14px;
-    line-height:2;
-    color:var(--muted);
-}
-
-/* =========================================================
-   FAQ
-========================================================= */
-
-.faq{
-    padding:130px 6vw 160px;
-}
-
-.faq-container{
-    max-width:850px;
-    margin:60px auto 0;
-}
-
-.faq-item{
-    border-top:1px solid rgba(255,255,255,.12);
-}
-
-.faq-item:last-child{
-    border-bottom:1px solid rgba(255,255,255,.12);
-}
-
-.faq-question{
-    width:100%;
-    padding:25px 5px;
-    border:0;
-    background:none;
-    color:#fff;
-    text-align:left;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    cursor:pointer;
-    font-size:13px;
-}
-
-.faq-icon{
-    font-size:20px;
-    opacity:.5;
-    transition:.35s;
-}
-
-.faq-answer{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .45s ease;
-}
-
-.faq-answer p{
-    padding:0 35px 25px 5px;
-    font-size:12px;
-    line-height:1.9;
-    color:var(--muted);
-}
-
-.faq-item.active .faq-answer{
-    max-height:220px;
-}
-
-.faq-item.active .faq-icon{
-    transform:rotate(45deg);
-    opacity:1;
-}
-
-/* =========================================================
-   FINAL CTA
-========================================================= */
+/* FINAL */
 
 .final{
-    min-height:90vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:100px 20px;
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
 }
 
-.final::before{
-    content:"";
-    position:absolute;
-    width:700px;
-    height:700px;
-    border-radius:50%;
-    background:
-        radial-gradient(
-            circle,
-            rgba(140,75,225,.22),
-            transparent 65%
-        );
-    animation:finalGlow 7s ease-in-out infinite;
-}
-
-@keyframes finalGlow{
-    50%{
-        transform:scale(1.25);
-        opacity:.7;
-    }
+.final:before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(120,55,220,.2),transparent 65%);
+  filter:blur(20px);
 }
 
 .final-content{
-    position:relative;
-    z-index:2;
+  position:relative;
+  z-index:2;
 }
 
 .final h2{
-    font-family:Cinzel,serif;
-    font-size:clamp(50px,9vw,100px);
-    font-weight:400;
-    line-height:.92;
+  font-family:Cinzel,serif;
+  font-weight:400;
+  font-size:clamp(38px,7vw,78px);
+  letter-spacing:4px;
 }
 
 .final p{
-    max-width:520px;
-    margin:28px auto 35px;
-    font-size:14px;
-    line-height:1.8;
-    color:var(--muted);
+  color:#9c92a5;
+  max-width:500px;
+  margin:24px auto 0;
+  font-size:13px;
+  line-height:1.8;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.final .hero-cta{
+  margin-top:35px;
+}
+
+/* FOOTER */
 
 footer{
-    padding:40px 6vw;
-    border-top:1px solid rgba(255,255,255,.08);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:25px;
-    flex-wrap:wrap;
+  padding:35px 7vw;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  color:#6f6678;
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.footer-brand{
-    font-family:Cinzel,serif;
+footer strong{
+  color:#9f83ba;
+  font-family:Cinzel,serif;
+  font-weight:400;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  nav{
+    height:68px;
+    padding:0 20px;
+  }
+
+  .logo{
     font-size:12px;
-    letter-spacing:4px;
-}
+    letter-spacing:3px;
+  }
 
-.socials{
-    display:flex;
-    gap:22px;
-}
-
-.social{
-    font-size:9px;
-    letter-spacing:2px;
-    opacity:.45;
-    transition:.3s;
-}
-
-.social:hover{
-    opacity:1;
-}
-
-.copy{
+  .nav-enter{
+    padding:9px 13px;
     font-size:8px;
-    letter-spacing:2px;
-    opacity:.28;
+  }
+
+  .hero{
+    min-height:900px;
+    padding-top:100px;
+  }
+
+  .universe{
+    width:620px;
+    height:620px;
+    top:47%;
+  }
+
+  .portal{
+    width:260px;
+    height:260px;
+  }
+
+  .orbit{
+    width:500px;
+    height:500px;
+  }
+
+  .orbit.two{
+    width:410px;
+    height:410px;
+  }
+
+  .orbit.three{
+    width:570px;
+    height:570px;
+  }
+
+  .tarot{
+    width:82px;
+    height:135px;
+  }
+
+  .card-a{left:3%}
+  .card-b{right:3%}
+  .card-c{left:11%}
+  .card-d{right:10%}
+
+  h1{
+    font-size:42px;
+    letter-spacing:4px;
+  }
+
+  .hero-sub{
+    max-width:330px;
+    font-size:12px;
+  }
+
+  .section{
+    padding:95px 22px;
+  }
+
+  .experience{
+    grid-template-columns:1fr;
+  }
+
+  .glass{
+    min-height:270px;
+  }
+
+  .glass h3{
+    margin-top:55px;
+  }
+
+  .sigil-section{
+    min-height:570px;
+  }
+
+  .sigil{
+    width:280px;
+    height:280px;
+  }
+
+  .sigil-core{
+    inset:88px;
+  }
+
+  footer{
+    flex-direction:column;
+    text-align:center;
+  }
 }
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:750px){
-
-    nav{
-        padding:17px 18px;
-    }
-
-    .logo{
-        font-size:9px;
-        letter-spacing:3px;
-    }
-
-    .nav-link{
-        display:none;
-    }
-
-    .nav-etsy{
-        padding:9px 13px;
-        font-size:8px;
-    }
-
-    .hero{
-        padding-top:80px;
-    }
-
-    .hero-scene{
-        height:690px;
-    }
-
-    .portal{
-        width:290px;
-        height:290px;
-    }
-
-    .orbit.one{
-        width:450px;
-        height:170px;
-    }
-
-    .orbit.two{
-        width:520px;
-        height:190px;
-    }
-
-    .orbit.three{
-        width:370px;
-        height:370px;
-    }
-
-    .hero-card{
-        width:65px;
-        height:105px;
-    }
-
-    .card-a{
-        left:2%;
-        top:43%;
-    }
-
-    .card-b{
-        right:2%;
-        top:38%;
-    }
-
-    .card-c{
-        left:15%;
-        top:17%;
-    }
-
-    .card-d{
-        right:15%;
-        bottom:12%;
-    }
-
-    .hero-content{
-        width:95%;
-    }
-
-    .hero h1{
-        font-size:clamp(43px,13vw,75px);
-        letter-spacing:4px;
-    }
-
-    .hero-subtitle{
-        font-size:12px;
-        padding:0 10px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    .btn{
-        width:230px;
-    }
-
-    .reading-grid{
-        grid-template-columns:1fr;
-    }
-
-    .reading{
-        min-height:420px;
-    }
-
-    .process-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .intro,
-    .quote-section,
-    .coming,
-    .about{
-        padding-top:110px;
-        padding-bottom:110px;
-    }
-
-    footer{
-        justify-content:center;
-        text-align:center;
-    }
-}
-
-@media(max-width:430px){
-
-    .process-grid{
-        grid-template-columns:1fr;
-    }
-
-    .visual{
-        opacity:.65;
-        right:-15px;
-        transform:scale(.82);
-    }
-
-    .reading p{
-        max-width:245px;
-    }
-
-    .hero-card{
-        opacity:.65;
-    }
-
-    .portal{
-        width:250px;
-        height:250px;
-    }
-
-    .orbit.one{
-        width:390px;
-    }
-
-    .orbit.two{
-        width:430px;
-    }
-
-    .orbit.three{
-        width:320px;
-        height:320px;
-    }
-
-    .hero h1{
-        font-size:43px;
-    }
-}
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        scroll-behavior:auto !important;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="space"></div>
-<div class="stars" id="stars"></div>
-<div class="dust"></div>
-<div class="grain"></div>
-
-
-<!-- =====================================================
-     NAV
-===================================================== -->
+<div id="space"></div>
 
 <nav>
-
-<a href="#" class="logo">
-THE ZENTAROT CO
-</a>
-
-<div class="nav-right">
-
-<a href="#readings" class="nav-link">
-READINGS
-</a>
-
-<a href="#faq" class="nav-link">
-FAQ
-</a>
-
-<a
-href="https://thezentarotco.etsy.com"
-target="_blank"
-rel="noopener noreferrer"
-class="nav-etsy">
-SHOP ON ETSY
-</a>
-
-</div>
-
+  <div class="logo">THE <span>ZENTAROT</span> CO.</div>
+  <a class="nav-enter" href="https://thezentarotco.etsy.com" target="_blank" rel="noopener">
+    Enter the shop
+  </a>
 </nav>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<main>
 
 <section class="hero">
 
-<div class="hero-scene" id="heroScene">
+  <div class="universe" id="universe">
 
-<div class="portal"></div>
+    <div class="portal"></div>
 
-<div class="orbit one">
-    <span class="orbit-dot dot1"></span>
-    <span class="orbit-dot dot3"></span>
-</div>
+    <div class="orbit">
+      <div class="orbit-dot dot1"></div>
+      <div class="orbit-dot dot2"></div>
+    </div>
 
-<div class="orbit two">
-    <span class="orbit-dot dot2"></span>
-</div>
+    <div class="orbit two">
+      <div class="orbit-dot dot3"></div>
+    </div>
 
-<div class="orbit three">
-    <span class="orbit-dot dot4"></span>
-</div>
+    <div class="orbit three">
+      <div class="orbit-dot dot4"></div>
+    </div>
 
+    <div class="tarot card-a"></div>
+    <div class="tarot card-b"></div>
+    <div class="tarot card-c"></div>
+    <div class="tarot card-d"></div>
 
-<!-- FLOATING CARDS -->
+  </div>
 
-<div class="hero-card card-a"></div>
-<div class="hero-card card-b"></div>
-<div class="hero-card card-c"></div>
-<div class="hero-card card-d"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Tarot · I Ching · Oracle · Sibille</div>
 
+    <h1>
+      THE ZENTAROT
+      <span>CO.</span>
+    </h1>
 
-<!-- HERO TEXT -->
+    <p class="hero-sub">
+      Beyond the visible. A space for symbolic readings,
+      intuition and the questions that stay with you.
+    </p>
 
-<div class="hero-content">
-
-<div class="since">
-SINCE 2020
-</div>
-
-<h1>
-THE<br>
-ZENTAROT CO
-</h1>
-
-<p class="hero-subtitle">
-Personal readings for questions, reflection,
-relationships, choices and the things that matter to you.
-</p>
-
-<div class="hero-buttons">
-
-<a
-href="https://thezentarotco.etsy.com"
-target="_blank"
-rel="noopener noreferrer"
-class="btn btn-primary">
-ENTER THE SHOP
-</a>
-
-<a
-href="#readings"
-class="btn btn-secondary">
-EXPLORE THE READINGS
-</a>
-
-</div>
-
-</div>
-
-
-<div class="scroll-indicator">
-
-EXPLORE
-
-<div class="scroll-line"></div>
-
-</div>
-
-</div>
+    <a class="hero-cta" href="https://thezentarotco.etsy.com" target="_blank" rel="noopener">
+      Enter the shop
+      <span class="arrow">↗</span>
+    </a>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-     MARQUEE
-===================================================== -->
+<section class="section">
+  <div class="section-inner">
 
-<div class="marquee">
+    <div class="section-label">The experience</div>
 
-<div class="marquee-track">
+    <h2 class="section-title">
+      Look beyond<br>what is visible.
+    </h2>
 
-TAROT ✦ I CHING ✦ ORACLE ✦ SIBILLE ✦ SYMBOLS ✦ INTUITION ✦
-THE UNKNOWN ✦ THE JOURNEY ✦ TAROT ✦ I CHING ✦ ORACLE ✦
-SIBILLE ✦ SYMBOLS ✦ INTUITION ✦ THE UNKNOWN ✦
+    <p class="section-description">
+      Every reading begins with a question. The cards, symbols and
+      ancient systems become a language through which you can explore
+      possibilities, patterns and perspectives.
+    </p>
 
-</div>
+    <div class="experience">
 
-</div>
+      <article class="glass">
+        <div class="glass-number">01</div>
+        <h3>Tarot</h3>
+        <p>
+          Symbolic archetypes, intuition and interpretation come together
+          to explore the energy surrounding your question.
+        </p>
+      </article>
+
+      <article class="glass">
+        <div class="glass-number">02</div>
+        <h3>Ancient systems</h3>
+        <p>
+          I Ching, Oracle and Sibille offer different symbolic languages
+          for looking at a situation from another perspective.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
 
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
+<section class="section sigil-section">
 
-<section class="intro">
+  <div class="section-inner">
 
-<div class="kicker">
-LOOK BEYOND THE OBVIOUS
-</div>
+    <div class="section-label">Since 2020</div>
 
-<h2>
-Your question is the beginning.
-</h2>
+    <h2 class="section-title">
+      Symbols speak<br>in their own language.
+    </h2>
 
-<p>
-Sometimes clarity begins when you look at a situation
-from another angle. Every reading begins with your question
-and is personally created around what you want to explore.
-</p>
+    <div class="sigil">
+      <div class="sigil-ring"></div>
+      <div class="sigil-ring"></div>
+      <div class="sigil-ring"></div>
+      <div class="sigil-core"></div>
+    </div>
+
+    <p class="section-description" style="margin:0 auto;">
+      There is no single way to ask a question.
+      Explore the shop and choose the reading that feels right for you.
+    </p>
+
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-     READINGS
-===================================================== -->
-
-<section class="readings" id="readings">
-
-<div class="section-title">
-
-<div class="kicker">
-DISCOVER YOUR PATH
-</div>
-
-<h2>
-The Readings
-</h2>
-
-<p>
-Choose the symbolic system that speaks to you.
-</p>
-
-</div>
-
-
-<div class="reading-grid">
-
-
-<!-- TAROT -->
-
-<article class="reading">
-
-<div class="reading-number">
-01 / TAROT
-</div>
-
-<h3>
-Tarot
-</h3>
-
-<p>
-Explore your question through the symbolic language
-of the cards and receive a personal interpretation
-created around your situation.
-</p>
-
-<div class="visual">
-
-<div class="tarot-stack">
-
-<div class="tarot-mini"></div>
-<div class="tarot-mini"></div>
-<div class="tarot-mini"></div>
-
-</div>
-
-</div>
-
-<a
-href="https://thezentarotco.etsy.com"
-target="_blank"
-rel="noopener noreferrer"
-class="reading-link">
-BUY ON ETSY
-</a>
-
-</article>
-
-
-<!-- I CHING -->
-
-<article class="reading">
-
-<div class="reading-number">
-02 / I CHING
-</div>
-
-<h3>
-I Ching
-</h3>
-
-<p>
-An ancient symbolic system for reflecting on questions,
-changing patterns, choices and direction.
-</p>
-
-<div class="visual">
-
-<div class="iching-book">
-
-<div class="book-page left"></div>
-<div class="book-page right"></div>
-
-<div class="hexagram">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-</div>
-
-</div>
-
-<a
-href="https://thezentarotco.etsy.com"
-target="_blank"
-rel="noopener noreferrer"
-class="reading-link">
-BUY ON ETSY
-</a>
-
-</article>
-
-
-<!-- ORACLE -->
-
-<article class="reading">
-
-<div class="reading-number">
-03 / ORACLE
-</div>
-
-<h3>
-Oracle
-</h3>
-
-<p>
-A more intuitive and open-ended approach,
-guided by the messages and symbolism of the cards.
-</p>
-
-<div class="visual">
-
-<div class="oracle-orb"></div>
-
-</div>
-
-<a
-href="https://thezentarotco.etsy.com"
-target="_blank"
-rel="noopener noreferrer"
-class="reading-link">
-BUY ON ETSY
-</a>
-
-</article>
-
-
-<!-- SIBILLE -->
-
-<article class="reading">
-
-<div class="reading-number">
-04 / SIBILLE
-</div>
-
-<h3>
-Sibille
-</h3>
-
-<p>
-Traditional symbolic cards used to explore situations,
-relationships and the questions that matter to you.
-</p>
-
-<div class="visual">
-
-<div class="sibille-fan">
-
-<div class="sib-card"></div>
-<div class="sib-card"></div>
-<div class="sib-card"></div>
-<div class="sib-card"></div>
-<div class="sib-card"></div>
-
-</div>
-
-</div>
-
-<a
-href="https://thezentarotco.etsy.com"
-target="_blank"
-rel="noopener noreferrer"
-class="reading-link">
-BUY ON ETSY
-</a>
-
-</article>
-
-
-</div>
-
+<section class="quote">
+  <div class="quote-mark">“</div>
+
+  <div class="quote-text">
+    The answer is not always hidden.
+    Sometimes we simply need another way to see it.
+  </div>
+
+  <div class="quote-small">
+    The Zentarot Co. · Since 2020
+  </div>
 </section>
 
-
-<!-- =====================================================
-     QUOTE
-===================================================== -->
-
-<section class="quote-section">
-
-<div class="quote">
-Sometimes clarity begins
-with a different perspective.
-</div>
-
-<div class="quote-small">
-TRUST THE QUESTION
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PROCESS
-===================================================== -->
-
-<section class="process">
-
-<div class="section-title">
-
-<div class="kicker">
-HOW IT WORKS
-</div>
-
-<h2>
-Simple. Personal. Yours.
-</h2>
-
-</div>
-
-
-<div class="process-grid">
-
-<div class="step">
-
-<div class="step-number">
-01
-</div>
-
-<h3>
-CHOOSE
-</h3>
-
-<p>
-Choose the reading that feels right for your question.
-</p>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">
-02
-</div>
-
-<h3>
-BUY ON ETSY
-</h3>
-
-<p>
-Complete your order through The Zentarot Co Etsy shop.
-</p>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">
-03
-</div>
-
-<h3>
-SEND YOUR QUESTION
-</h3>
-
-<p>
-Send your question and any context you want to share.
-</p>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">
-04
-</div>
-
-<h3>
-RECEIVE YOUR READING
-</h3>
-
-<p>
-Your personal reading is created around your question.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     COMING SOON
-===================================================== -->
-
-<section class="coming">
-
-<div class="coming-content">
-
-<div class="kicker">
-THE JOURNEY CONTINUES
-</div>
-
-<h2>
-MORE IS<br>
-COMING.
-</h2>
-
-<p>
-The Zentarot Co is growing.
-New readings, experiences and ways to explore
-will be introduced in the future.
-</p>
-
-<div class="coming-line">
-STAY CURIOUS · STAY OPEN · MORE TO COME
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section class="about">
-
-<div class="about-box">
-
-<div class="kicker">
-THE ZENTAROT CO
-</div>
-
-<h2>
-Created with intention.
-</h2>
-
-<p>
-The Zentarot Co was created around a simple idea:
-a reading should feel personal.
-Your reading is not generated automatically.
-After your purchase, your question is personally considered
-and your reading is created specifically for you.
-</p>
-
-<div class="since">
-SINCE 2020
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     FAQ
-===================================================== -->
-
-<section class="faq" id="faq">
-
-<div class="section-title">
-
-<div class="kicker">
-QUESTIONS
-</div>
-
-<h2>
-Frequently Asked Questions
-</h2>
-
-<p>
-Everything you need to know before your reading.
-</p>
-
-</div>
-
-
-<div class="faq-container">
-
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-What happens after I place an order?
-
-<span class="faq-icon">+</span>
-
-</button>
-
-<div class="faq-answer">
-
-<p>
-After purchasing through Etsy, you can send your question
-and any context you feel is important.
-Your reading is then personally created around your question.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-Is the reading automatic?
-
-<span class="faq-icon">+</span>
-
-</button>
-
-<div class="faq-answer">
-
-<p>
-No. The Zentarot Co does not use an automatic system
-to generate your personal interpretation.
-Each reading is personally created after the order.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-What can I ask about?
-
-<span class="faq-icon">+</span>
-
-</button>
-
-<div class="faq-answer">
-
-<p>
-You can ask about a situation, relationship, decision,
-personal reflection or another subject that is meaningful
-to you.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-Which reading should I choose?
-
-<span class="faq-icon">+</span>
-
-</button>
-
-<div class="faq-answer">
-
-<p>
-Choose the system that attracts you most.
-Tarot, I Ching, Oracle and Sibille each offer
-a different symbolic approach.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-Where do I purchase a reading?
-
-<span class="faq-icon">+</span>
-
-</button>
-
-<div class="faq-answer">
-
-<p>
-All readings are available through The Zentarot Co Etsy shop.
-Use any BUY ON ETSY or SHOP ON ETSY button on this website.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-Will new services be added?
-
-<span class="faq-icon">+</span>
-
-</button>
-
-<div class="faq-answer">
-
-<p>
-Yes. The Zentarot Co is a growing project and new readings
-and experiences may be introduced in the future.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="faq-item">
-
-<button class="faq-question">
-
-Where can I follow The Zentarot Co?
-
-<span class="faq-icon">+</span>
-
-</button>
-
-<div class="faq-answer">
-
-<p>
-You can follow The Zentarot Co on Instagram at
-@TheZenTarotCo.
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     FINAL CTA
-===================================================== -->
 
 <section class="final">
 
-<div class="final-content">
+  <div class="final-content">
 
-<div class="kicker">
-WHEN YOU'RE READY
-</div>
+    <div class="section-label">Your question awaits</div>
 
-<h2>
-ASK THE<br>
-QUESTION.
-</h2>
+    <h2>Enter the<br>unknown.</h2>
 
-<p>
-Begin your personal reading through
-The Zentarot Co on Etsy.
-</p>
+    <p>
+      Discover the full collection of readings and explore
+      The Zentarot Co. on Etsy.
+    </p>
 
-<a
-href="https://thezentarotco.etsy.com"
-target="_blank"
-rel="noopener noreferrer"
-class="btn btn-primary">
-ENTER THE SHOP
-</a>
+    <a class="hero-cta" href="https://thezentarotco.etsy.com" target="_blank" rel="noopener">
+      Visit the shop
+      <span class="arrow">↗</span>
+    </a>
 
-</div>
+  </div>
 
 </section>
 
+</main>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
-
-<div class="footer-brand">
-THE ZENTAROT CO
-</div>
-
-<div class="socials">
-
-<a
-href="https://www.instagram.com/TheZenTarotCo/"
-target="_blank"
-rel="noopener noreferrer"
-class="social">
-INSTAGRAM · @TheZenTarotCo
-</a>
-
-<a
-href="https://thezentarotco.etsy.com"
-target="_blank"
-rel="noopener noreferrer"
-class="social">
-ETSY SHOP
-</a>
-
-</div>
-
-<div class="copy">
-© 2026 THE ZENTAROT CO
-</div>
-
+  <strong>THE ZENTAROT CO.</strong>
+  <span>Tarot · I Ching · Oracle · Sibille</span>
+  <span>© 2026</span>
 </footer>
 
 
 <script>
 
-/* =========================================================
-   STAR FIELD
-========================================================= */
+/* STARS */
 
-const stars = document.getElementById("stars");
+const space = document.getElementById("space");
 
-for(let i = 0; i < 240; i++){
+for(let i=0;i<170;i++){
 
-    const star = document.createElement("div");
+  const star=document.createElement("div");
+  star.className="star";
 
-    star.className = "star";
+  star.style.left=Math.random()*100+"%";
+  star.style.top=Math.random()*100+"%";
+  star.style.animationDelay=(Math.random()*5)+"s";
+  star.style.animationDuration=(3+Math.random()*5)+"s";
 
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
+  const size=Math.random()*2.2+.5;
+  star.style.width=size+"px";
+  star.style.height=size+"px";
 
-    star.style.setProperty(
-        "--duration",
-        (Math.random() * 4 + 2) + "s"
-    );
-
-    star.style.animationDelay =
-        Math.random() * 5 + "s";
-
-    if(Math.random() > .75){
-
-        star.style.width = "3px";
-        star.style.height = "3px";
-
-    }
-
-    stars.appendChild(star);
-
+  space.appendChild(star);
 }
 
 
-/* =========================================================
-   FAQ
-========================================================= */
+/* SUBTLE 3D MOUSE / TOUCH MOVEMENT */
 
-document.querySelectorAll(".faq-question").forEach(button => {
+const universe=document.getElementById("universe");
 
-    button.addEventListener("click", () => {
+let targetX=0;
+let targetY=0;
+let currentX=0;
+let currentY=0;
 
-        const item = button.parentElement;
+function animate3D(){
 
-        document.querySelectorAll(".faq-item").forEach(other => {
+  currentX += (targetX-currentX)*0.04;
+  currentY += (targetY-currentY)*0.04;
 
-            if(other !== item){
-                other.classList.remove("active");
-            }
+  universe.style.transform=
+    `translate(-50%,-50%) rotateX(${currentY}deg) rotateY(${currentX}deg)`;
 
-        });
+  requestAnimationFrame(animate3D);
+}
 
-        item.classList.toggle("active");
+animate3D();
 
-    });
+window.addEventListener("mousemove",(e)=>{
 
-});
+  const x=(e.clientX/window.innerWidth-.5);
+  const y=(e.clientY/window.innerHeight-.5);
 
-
-/* =========================================================
-   3D HERO MOUSE MOVEMENT
-========================================================= */
-
-const hero = document.getElementById("heroScene");
-
-document.addEventListener("mousemove", event => {
-
-    if(window.innerWidth < 750) return;
-
-    const x =
-        event.clientX / window.innerWidth - .5;
-
-    const y =
-        event.clientY / window.innerHeight - .5;
-
-    hero.style.transform =
-        `
-        rotateX(${y * -3}deg)
-        rotateY(${x * 5}deg)
-        `;
-});
-
-
-/* =========================================================
-   RESET HERO WHEN MOUSE LEAVES
-========================================================= */
-
-document.addEventListener("mouseleave", () => {
-
-    hero.style.transform =
-        "rotateX(0deg) rotateY(0deg)";
+  targetX=x*8;
+  targetY=-y*8;
 
 });
 
 
-/* =========================================================
-   MAGNETIC BUTTONS
-========================================================= */
+window.addEventListener("touchmove",(e)=>{
 
-document.querySelectorAll(".btn-primary").forEach(button => {
+  if(!e.touches.length)return;
 
-    button.addEventListener("mousemove", event => {
+  const x=e.touches[0].clientX/window.innerWidth-.5;
+  const y=e.touches[0].clientY/window.innerHeight-.5;
 
-        if(window.innerWidth < 750) return;
+  targetX=x*7;
+  targetY=-y*7;
 
-        const rect =
-            button.getBoundingClientRect();
-
-        const x =
-            event.clientX - rect.left - rect.width / 2;
-
-        const y =
-            event.clientY - rect.top - rect.height / 2;
-
-        button.style.transform =
-            `translate(${x * .08}px,${y * .08}px) scale(1.04)`;
-
-    });
-
-    button.addEventListener("mouseleave", () => {
-
-        button.style.transform = "";
-
-    });
-
-});
+},{passive:true});
 
 
-/* =========================================================
-   CINEMATIC CLICK LIGHT
-========================================================= */
+/* BUTTON LIGHT */
 
-document.addEventListener("click", event => {
+document.querySelectorAll(".hero-cta").forEach(button=>{
 
-    const flash =
-        document.createElement("div");
+  button.addEventListener("pointermove",(e)=>{
 
-    flash.style.position = "fixed";
-    flash.style.left = event.clientX + "px";
-    flash.style.top = event.clientY + "px";
+    const rect=button.getBoundingClientRect();
 
-    flash.style.width = "4px";
-    flash.style.height = "4px";
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
 
-    flash.style.borderRadius = "50%";
+    button.style.background=
+      `radial-gradient(circle at ${x}px ${y}px, #c49aff 0%, #8c54ed 25%, #6332bd 70%)`;
 
-    flash.style.background = "#fff";
+  });
 
-    flash.style.boxShadow =
-        "0 0 50px 20px rgba(210,170,255,.65)";
+  button.addEventListener("pointerleave",()=>{
 
-    flash.style.pointerEvents = "none";
+    button.style.background=
+      "linear-gradient(135deg,#a56eff,#6332bd)";
 
-    flash.style.zIndex = "9999";
-
-    document.body.appendChild(flash);
-
-    flash.animate(
-
-        [
-            {
-                transform:"scale(1)",
-                opacity:1
-            },
-            {
-                transform:"scale(32)",
-                opacity:0
-            }
-        ],
-
-        {
-            duration:650,
-            easing:"cubic-bezier(.16,1,.3,1)"
-        }
-
-    );
-
-    setTimeout(() => {
-
-        flash.remove();
-
-    },650);
+  });
 
 });
 
 </script>
 
 </body>
-  </html>
+</html>
