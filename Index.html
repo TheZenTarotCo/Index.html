@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Zentarot Co. — Beyond The Visible</title>
+
+<meta name="description"
+content="The Zentarot Co. — Personal Tarot, I Ching, Oracle and Sibille readings. Since 2020.">
+
+<meta name="theme-color" content="#05020b">
+
+<meta property="og:title" content="The Zentarot Co. — Beyond The Visible">
+<meta property="og:description" content="Personal Tarot, I Ching, Oracle and Sibille readings. Since 2020.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dadda346sil-source.github.io/thezentarotco.github.io/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   THE ZENTAROT CO.
+   CINEMATIC 3D EXPERIENCE
+========================================================= */
+
+:root{
+    --bg:#030107;
+    --bg2:#08030f;
+    --purple:#9b63ff;
+    --purple2:#d5b6ff;
+    --white:#f8f4ff;
+    --muted:rgba(248,244,255,.58);
+    --line:rgba(220,190,255,.14);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+/* =========================================================
+   GLOBAL SPACE
+========================================================= */
+
+.space{
+    position:fixed;
+    inset:0;
+    z-index:-20;
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(111,55,190,.22),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(70,25,150,.18),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(170,100,255,.12),
+            transparent 25%
+        ),
+        #030107;
+}
+
+.space::before{
+    content:"";
+    position:absolute;
+    width:75vw;
+    height:75vw;
+    left:50%;
+    top:35%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(180,120,255,.09),
+            transparent 65%
+        );
+    filter:blur(15px);
+    animation:universePulse 9s ease-in-out infinite;
+}
+
+@keyframes universePulse{
+    0%,100%{
+        transform:translate(-50%,-50%) scale(.9);
+        opacity:.65;
+    }
+
+    50%{
+        transform:translate(-50%,-50%) scale(1.12);
+        opacity:1;
+    }
+}
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:-15;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:#fff;
+    opacity:.3;
+    animation:twinkle var(--duration) ease-in-out infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.1;
+        transform:scale(.5);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.7);
+    }
+}
+
+/* =========================================================
+   FLOATING DUST
+========================================================= */
+
+.dust{
+    position:fixed;
+    inset:0;
+    z-index:-12;
+    pointer-events:none;
+    background-image:
+        radial-gradient(circle,rgba(255,255,255,.35) 0 1px,transparent 1px);
+    background-size:150px 150px;
+    opacity:.12;
+    animation:dustMove 30s linear infinite;
+}
+
+@keyframes dustMove{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-150px);
+    }
+}
+
+/* =========================================================
+   GRAIN
+========================================================= */
+
+.grain{
+    position:fixed;
+    inset:-50%;
+    z-index:100;
+    pointer-events:none;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain .25s steps(2) infinite;
+}
+
+@keyframes grain{
+    0%{transform:translate(0,0)}
+    25%{transform:translate(2%,-1%)}
+    50%{transform:translate(-1%,2%)}
+    75%{transform:translate(1%,1%)}
+    100%{transform:translate(-2%,-1%)}
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:50;
+    padding:22px 5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(
+        to bottom,
+        rgba(3,1,7,.94),
+        rgba(3,1,7,.35),
+        transparent
+    );
+    backdrop-filter:blur(8px);
+}
+
+.logo{
+    font-family:Cinzel,serif;
+    font-size:13px;
+    letter-spacing:5px;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+.nav-link{
+    font-size:9px;
+    letter-spacing:2px;
+    opacity:.55;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    opacity:1;
+}
+
+.nav-etsy{
+    padding:11px 20px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:30px;
+    font-size:9px;
+    letter-spacing:2px;
+    background:rgba(255,255,255,.025);
+    transition:.4s;
+}
+
+.nav-etsy:hover{
+    background:#fff;
+    color:#08030d;
+    box-shadow:
+        0 0 20px rgba(210,170,255,.3),
+        0 0 60px rgba(140,80,255,.2);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100svh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 20px 70px;
+    perspective:1600px;
+}
+
+.hero-scene{
+    position:relative;
+    width:min(1200px,100%);
+    height:760px;
+    transform-style:preserve-3d;
+    transition:transform .2s ease-out;
+}
+
+/* =========================================================
+   CENTRAL PORTAL
+========================================================= */
+
+.portal{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:420px;
+    height:420px;
+    transform:
+        translate(-50%,-50%)
+        translateZ(-80px);
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255,255,255,.85),
+            rgba(210,180,255,.4) 5%,
+            rgba(125,65,210,.25) 25%,
+            rgba(40,10,75,.2) 52%,
+            transparent 72%
+        );
+
+    box-shadow:
+        0 0 70px rgba(155,90,255,.32),
+        0 0 180px rgba(100,40,190,.22),
+        inset 0 0 70px rgba(255,255,255,.08);
+
+    animation:
+        portalFloat 8s ease-in-out infinite,
+        portalPulse 6s ease-in-out infinite;
+}
+
+.portal::before{
+    content:"";
+    position:absolute;
+    inset:-25px;
+    border-radius:50%;
+    border:1px solid rgba(205,165,255,.22);
+    box-shadow:
+        0 0 50px rgba(160,90,255,.12);
+    animation:portalSpin 22s linear infinite;
+}
+
+.portal::after{
+    content:"";
+    position:absolute;
+    inset:35px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.08);
+    animation:portalSpinReverse 14s linear infinite;
+}
+
+@keyframes portalFloat{
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            translateZ(-80px)
+            translateY(12px);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            translateZ(-80px)
+            translateY(-15px);
+    }
+}
+
+@keyframes portalPulse{
+    50%{
+        box-shadow:
+            0 0 110px rgba(155,90,255,.4),
+            0 0 240px rgba(100,40,190,.25),
+            inset 0 0 90px rgba(255,255,255,.1);
+    }
+}
+
+@keyframes portalSpin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes portalSpinReverse{
+    to{
+        transform:rotate(-360deg);
+    }
+}
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.orbit{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform-style:preserve-3d;
+    border-radius:50%;
+    border:1px solid rgba(190,140,255,.16);
+    pointer-events:none;
+}
+
+.orbit.one{
+    width:760px;
+    height:280px;
+    transform:
+        translate(-50%,-50%)
+        rotateX(64deg)
+        rotateZ(-18deg);
+    animation:orbitA 18s linear infinite;
+}
+
+.orbit.two{
+    width:900px;
+    height:340px;
+    transform:
+        translate(-50%,-50%)
+        rotateX(70deg)
+        rotateZ(35deg);
+    border-color:rgba(255,255,255,.07);
+    animation:orbitB 25s linear infinite;
+}
+
+.orbit.three{
+    width:560px;
+    height:560px;
+    transform:
+        translate(-50%,-50%)
+        rotateX(72deg);
+    border-color:rgba(180,120,255,.1);
+    animation:orbitC 32s linear infinite;
+}
+
+@keyframes orbitA{
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotateX(64deg)
+            rotateZ(342deg);
+    }
+}
+
+@keyframes orbitB{
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotateX(70deg)
+            rotateZ(395deg);
+    }
+}
+
+@keyframes orbitC{
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotateX(72deg)
+            rotateZ(360deg);
+    }
+}
+
+/* =========================================================
+   ORBIT PARTICLES
+========================================================= */
+
+.orbit-dot{
+    position:absolute;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#e8d8ff;
+    box-shadow:
+        0 0 12px #b982ff,
+        0 0 35px rgba(170,100,255,.7);
+}
+
+.dot1{
+    left:8%;
+    top:42%;
+}
+
+.dot2{
+    right:13%;
+    top:25%;
+}
+
+.dot3{
+    right:30%;
+    bottom:5%;
+}
+
+.dot4{
+    left:18%;
+    bottom:18%;
+}
+
+/* =========================================================
+   3D TAROT CARDS
+========================================================= */
+
+.hero-card{
+    position:absolute;
+    width:105px;
+    height:170px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            #321653,
+            #08030d 55%,
+            #241037
+        );
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.6),
+        0 0 30px rgba(140,75,230,.2),
+        inset 0 0 30px rgba(255,255,255,.04);
+
+    transform-style:preserve-3d;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+}
+
+.hero-card::before{
+    content:"";
+    position:absolute;
+    inset:9px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:6px;
+}
+
+.hero-card::after{
+    content:"✦";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-size:34px;
+    color:rgba(220,190,255,.7);
+    text-shadow:
+        0 0 15px rgba(190,130,255,.8),
+        0 0 40px rgba(140,80,255,.4);
+}
+
+.card-a{
+    left:11%;
+    top:45%;
+    animation:cardFloatA 8s ease-in-out infinite;
+}
+
+.card-b{
+    right:12%;
+    top:35%;
+    animation:cardFloatB 9s ease-in-out infinite;
+}
+
+.card-c{
+    left:24%;
+    top:12%;
+    transform:scale(.72) rotate(-18deg);
+    opacity:.65;
+    animation:cardFloatC 10s ease-in-out infinite;
+}
+
+.card-d{
+    right:25%;
+    bottom:7%;
+    transform:scale(.65) rotate(17deg);
+    opacity:.5;
+    animation:cardFloatD 11s ease-in-out infinite;
+}
+
+@keyframes cardFloatA{
+    0%,100%{
+        transform:
+            translate3d(0,20px,80px)
+            rotateX(8deg)
+            rotateY(24deg)
+            rotateZ(-18deg);
+    }
+
+    50%{
+        transform:
+            translate3d(-25px,-30px,140px)
+            rotateX(-5deg)
+            rotateY(-12deg)
+            rotateZ(-8deg);
+    }
+}
+
+@keyframes cardFloatB{
+    0%,100%{
+        transform:
+            translate3d(0,20px,40px)
+            rotateX(-5deg)
+            rotateY(-25deg)
+            rotateZ(17deg);
+    }
+
+    50%{
+        transform:
+            translate3d(30px,-35px,150px)
+            rotateX(8deg)
+            rotateY(12deg)
+            rotateZ(8deg);
+    }
+}
+
+@keyframes cardFloatC{
+    50%{
+        transform:
+            translate3d(-35px,35px,80px)
+            scale(.8)
+            rotate(-5deg);
+    }
+}
+
+@keyframes cardFloatD{
+    50%{
+        transform:
+            translate3d(25px,-25px,100px)
+            scale(.72)
+            rotate(28deg);
+    }
+}
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%) translateZ(180px);
+    width:min(900px,95%);
+    text-align:center;
+    z-index:10;
+}
+
+.since{
+    font-size:9px;
+    letter-spacing:7px;
+    opacity:.55;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:Cinzel,serif;
+    font-weight:500;
+    font-size:clamp(52px,9vw,110px);
+    line-height:.88;
+    letter-spacing:9px;
+
+    text-shadow:
+        0 0 30px rgba(205,160,255,.3),
+        0 0 100px rgba(110,50,190,.3);
+
+    animation:titleReveal 1.5s cubic-bezier(.16,1,.3,1);
+}
+
+@keyframes titleReveal{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.9);
+        letter-spacing:25px;
+        filter:blur(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+        letter-spacing:9px;
+        filter:blur(0);
+    }
+}
+
+.hero-subtitle{
+    margin:28px auto 0;
+    max-width:590px;
+    font-size:14px;
+    line-height:1.9;
+    font-weight:300;
+    color:var(--muted);
+}
+
+.hero-buttons{
+    margin-top:36px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:190px;
+    padding:16px 27px;
+    border-radius:50px;
+    font-size:9px;
+    letter-spacing:3px;
+    transition:.4s;
+}
+
+.btn-primary{
+    color:#09040e;
+    background:#f6efff;
+    box-shadow:
+        0 0 25px rgba(220,180,255,.15);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px) scale(1.04);
+    box-shadow:
+        0 0 35px rgba(220,180,255,.4),
+        0 0 100px rgba(140,80,255,.25);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.23);
+    background:rgba(255,255,255,.025);
+}
+
+.btn-secondary:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,.08);
+}
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+.scroll-indicator{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    font-size:8px;
+    letter-spacing:5px;
+    opacity:.3;
+}
+
+.scroll-line{
+    width:1px;
+    height:50px;
+    margin:12px auto 0;
+    background:linear-gradient(#fff,transparent);
+    animation:scrollLine 2s infinite;
+}
+
+@keyframes scrollLine{
+    0%{transform:scaleY(0);transform-origin:top}
+    50%{transform:scaleY(1);transform-origin:top}
+    51%{transform-origin:bottom}
+    100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:21px 0;
+    overflow:hidden;
+    white-space:nowrap;
+    background:rgba(255,255,255,.015);
+}
+
+.marquee-track{
+    display:inline-block;
+    font-family:Cinzel,serif;
+    font-size:11px;
+    letter-spacing:6px;
+    opacity:.4;
+    animation:marquee 30s linear infinite;
+}
+
+@keyframes marquee{
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section{
+    position:relative;
+    overflow:hidden;
+}
+
+.kicker{
+    font-size:9px;
+    letter-spacing:5px;
+    opacity:.42;
+    margin-bottom:24px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:65px;
+}
+
+.section-title h2{
+    font-family:Cinzel,serif;
+    font-size:clamp(38px,6vw,68px);
+    font-weight:400;
+}
+
+.section-title p{
+    margin-top:16px;
+    font-size:13px;
+    opacity:.45;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    padding:170px 7vw;
+    text-align:center;
+}
+
+.intro h2{
+    max-width:950px;
+    margin:auto;
+    font-family:Cinzel,serif;
+    font-size:clamp(38px,6vw,76px);
+    font-weight:400;
+    line-height:1.12;
+}
+
+.intro p{
+    max-width:650px;
+    margin:30px auto 0;
+    font-size:14px;
+    line-height:2;
+    color:var(--muted);
+}
+
+/* =========================================================
+   READINGS
+========================================================= */
+
+.readings{
+    padding:100px 5vw 160px;
+}
+
+.reading-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.reading{
+    min-height:430px;
+    position:relative;
+    padding:35px;
+    border:1px solid var(--line);
+    border-radius:22px;
+
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(125,65,210,.13),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    overflow:hidden;
+    transition:.5s;
+}
+
+.reading::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    right:-80px;
+    top:-80px;
+    border-radius:50%;
+    background:rgba(145,85,255,.1);
+    filter:blur(50px);
+    transition:.6s;
+}
+
+.reading:hover{
+    transform:translateY(-10px);
+    border-color:rgba(210,175,255,.35);
+    box-shadow:
+        0 35px 90px rgba(50,20,100,.3),
+        inset 0 0 40px rgba(255,255,255,.025);
+}
+
+.reading:hover::before{
+    transform:scale(1.5);
+}
+
+.reading-number{
+    font-family:Cinzel,serif;
+    font-size:10px;
+    letter-spacing:3px;
+    opacity:.35;
+}
+
+.reading h3{
+    margin-top:12px;
+    font-family:Cinzel,serif;
+    font-size:34px;
+    font-weight:400;
+}
+
+.reading p{
+    max-width:390px;
+    margin-top:15px;
+    font-size:13px;
+    line-height:1.85;
+    color:var(--muted);
+}
+
+.reading-link{
+    position:absolute;
+    left:35px;
+    bottom:30px;
+    padding:12px 20px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:30px;
+    font-size:9px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.reading-link:hover{
+    color:#09040e;
+    background:#fff;
+}
+
+/* =========================================================
+   READING VISUALS
+========================================================= */
+
+.visual{
+    position:absolute;
+    right:10px;
+    bottom:0;
+    width:250px;
+    height:250px;
+}
+
+/* TAROT */
+
+.tarot-stack{
+    position:absolute;
+    right:55px;
+    bottom:35px;
+    width:100px;
+    height:160px;
+    transform-style:preserve-3d;
+}
+
+.tarot-mini{
+    position:absolute;
+    inset:0;
+    border-radius:9px;
+    border:1px solid rgba(255,255,255,.25);
+    background:
+        linear-gradient(145deg,#341852,#08030d 55%,#251038);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+}
+
+.tarot-mini::before{
+    content:"✦";
+    position:absolute;
+    inset:9px;
+    border:1px solid rgba(255,255,255,.12);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    color:#c9a4ff;
+}
+
+.tarot-mini:nth-child(1){
+    transform:rotate(-17deg) translateX(-28px);
+}
+
+.tarot-mini:nth-child(2){
+    transform:rotate(-4deg);
+}
+
+.tarot-mini:nth-child(3){
+    transform:rotate(14deg) translateX(27px);
+}
+
+.tarot-stack{
+    animation:tarotFloat 5s ease-in-out infinite;
+}
+
+@keyframes tarotFloat{
+    50%{
+        transform:translateY(-20px) rotateY(8deg);
+    }
+}
+
+/* I CHING */
+
+.iching-book{
+    position:absolute;
+    width:205px;
+    height:145px;
+    left:20px;
+    bottom:45px;
+    display:flex;
+    perspective:600px;
+    transform:rotateX(55deg) rotateZ(-3deg);
+    filter:drop-shadow(0 30px 25px rgba(0,0,0,.5));
+}
+
+.book-page{
+    width:50%;
+    height:100%;
+    background:
+        linear-gradient(135deg,#38213f,#0b0610);
+    border:1px solid rgba(255,255,255,.18);
+}
+
+.book-page.left{
+    transform-origin:right;
+    animation:bookLeft 5s ease-in-out infinite;
+}
+
+.book-page.right{
+    transform-origin:left;
+    animation:bookRight 5s ease-in-out infinite;
+}
+
+@keyframes bookLeft{
+    50%{transform:rotateY(22deg)}
+}
+
+@keyframes bookRight{
+    50%{transform:rotateY(-22deg)}
+}
+
+.hexagram{
+    position:absolute;
+    left:52px;
+    top:42px;
+    width:100px;
+}
+
+.hexagram span{
+    display:block;
+    height:4px;
+    margin:8px 0;
+    background:rgba(235,215,255,.7);
+    box-shadow:0 0 12px rgba(190,140,255,.35);
+}
+
+.hexagram span:nth-child(2),
+.hexagram span:nth-child(5){
+    width:38px;
+}
+
+/* ORACLE */
+
+.oracle-orb{
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:45px;
+    bottom:45px;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #fff,
+            rgba(220,190,255,.65) 7%,
+            rgba(110,50,190,.35) 38%,
+            transparent 72%
+        );
+    box-shadow:
+        0 0 60px rgba(170,100,255,.35),
+        inset 0 0 35px rgba(255,255,255,.12);
+    animation:orbFloat 5s ease-in-out infinite;
+}
+
+.oracle-orb::before{
+    content:"";
+    position:absolute;
+    inset:-22px;
+    border-radius:50%;
+    border:1px solid rgba(200,150,255,.2);
+    animation:spin 9s linear infinite;
+}
+
+.oracle-orb::after{
+    content:"";
+    position:absolute;
+    inset:-40px;
+    border-radius:50%;
+    border:1px dashed rgba(200,150,255,.12);
+    animation:spinReverse 15s linear infinite;
+}
+
+@keyframes orbFloat{
+    50%{
+        transform:translateY(-20px) scale(1.06);
+    }
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+@keyframes spinReverse{
+    to{transform:rotate(-360deg)}
+}
+
+/* SIBILLE */
+
+.sibille-fan{
+    position:absolute;
+    width:150px;
+    height:190px;
+    right:45px;
+    bottom:20px;
+    animation:fanFloat 5s ease-in-out infinite;
+}
+
+.sib-card{
+    position:absolute;
+    width:72px;
+    height:118px;
+    bottom:0;
+    left:39px;
+    border-radius:7px;
+    border:1px solid rgba(255,255,255,.22);
+    background:linear-gradient(#2a173b,#08030d);
+    transform-origin:bottom center;
+    box-shadow:0 15px 30px rgba(0,0,0,.5);
+}
+
+.sib-card::before{
+    content:"✦";
+    position:absolute;
+    inset:7px;
+    border:1px solid rgba(255,255,255,.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:rgba(210,175,255,.55);
+}
+
+.sib-card:nth-child(1){
+    transform:rotate(-32deg);
+}
+
+.sib-card:nth-child(2){
+    transform:rotate(-16deg);
+}
+
+.sib-card:nth-child(3){
+    transform:rotate(0);
+}
+
+.sib-card:nth-child(4){
+    transform:rotate(16deg);
+}
+
+.sib-card:nth-child(5){
+    transform:rotate(32deg);
+}
+
+@keyframes fanFloat{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-section{
+    padding:180px 7vw;
+    text-align:center;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(120,55,190,.15),
+            transparent 58%
+        );
+}
+
+.quote{
+    max-width:900px;
+    margin:auto;
+    font-family:Cinzel,serif;
+    font-size:clamp(30px,5vw,60px);
+    line-height:1.3;
+}
+
+.quote-small{
+    margin-top:30px;
+    font-size:9px;
+    letter-spacing:5px;
+    opacity:.35;
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process{
+    padding:130px 5vw;
+}
+
+.process-grid{
+    max-width:1100px;
+    margin:60px auto 0;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.step{
+    padding:30px 20px;
+    border-top:1px solid rgba(255,255,255,.18);
+}
+
+.step-number{
+    font-family:Cinzel,serif;
+    font-size:32px;
+    opacity:.28;
+}
+
+.step h3{
+    margin-top:22px;
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:400;
+}
+
+.step p{
+    margin-top:12px;
+    font-size:12px;
+    line-height:1.8;
+    color:var(--muted);
+}
+
+/* =========================================================
+   COMING SOON
+========================================================= */
+
+.coming{
+    padding:170px 7vw;
+    text-align:center;
+}
+
+.coming::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:600px;
+    height:600px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(135,70,215,.17),
+            transparent 65%
+        );
+    animation:comingGlow 6s ease-in-out infinite;
+}
+
+@keyframes comingGlow{
+    50%{
+        transform:translate(-50%,-50%) scale(1.25);
+        opacity:.6;
+    }
+}
+
+.coming-content{
+    position:relative;
+    z-index:2;
+}
+
+.coming h2{
+    font-family:Cinzel,serif;
+    font-size:clamp(45px,8vw,90px);
+    font-weight:400;
+    line-height:.95;
+}
+
+.coming p{
+    max-width:600px;
+    margin:28px auto;
+    font-size:14px;
+    line-height:2;
+    color:var(--muted);
+}
+
+.coming-line{
+    font-size:9px;
+    letter-spacing:5px;
+    opacity:.35;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+    padding:160px 7vw;
+    text-align:center;
+}
+
+.about-box{
+    max-width:850px;
+    margin:auto;
+}
+
+.about h2{
+    font-family:Cinzel,serif;
+    font-size:clamp(40px,6vw,70px);
+    font-weight:400;
+}
+
+.about p{
+    max-width:650px;
+    margin:30px auto;
+    font-size:14px;
+    line-height:2;
+    color:var(--muted);
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    padding:130px 6vw 160px;
+}
+
+.faq-container{
+    max-width:850px;
+    margin:60px auto 0;
+}
+
+.faq-item{
+    border-top:1px solid rgba(255,255,255,.12);
+}
+
+.faq-item:last-child{
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.faq-question{
+    width:100%;
+    padding:25px 5px;
+    border:0;
+    background:none;
+    color:#fff;
+    text-align:left;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.faq-icon{
+    font-size:20px;
+    opacity:.5;
+    transition:.35s;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .45s ease;
+}
+
+.faq-answer p{
+    padding:0 35px 25px 5px;
+    font-size:12px;
+    line-height:1.9;
+    color:var(--muted);
+}
+
+.faq-item.active .faq-answer{
+    max-height:220px;
+}
+
+.faq-item.active .faq-icon{
+    transform:rotate(45deg);
+    opacity:1;
+}
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.final::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(140,75,225,.22),
+            transparent 65%
+        );
+    animation:finalGlow 7s ease-in-out infinite;
+}
+
+@keyframes finalGlow{
+    50%{
+        transform:scale(1.25);
+        opacity:.7;
+    }
+}
+
+.final-content{
+    position:relative;
+    z-index:2;
+}
+
+.final h2{
+    font-family:Cinzel,serif;
+    font-size:clamp(50px,9vw,100px);
+    font-weight:400;
+    line-height:.92;
+}
+
+.final p{
+    max-width:520px;
+    margin:28px auto 35px;
+    font-size:14px;
+    line-height:1.8;
+    color:var(--muted);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:40px 6vw;
+    border-top:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.footer-brand{
+    font-family:Cinzel,serif;
+    font-size:12px;
+    letter-spacing:4px;
+}
+
+.socials{
+    display:flex;
+    gap:22px;
+}
+
+.social{
+    font-size:9px;
+    letter-spacing:2px;
+    opacity:.45;
+    transition:.3s;
+}
+
+.social:hover{
+    opacity:1;
+}
+
+.copy{
+    font-size:8px;
+    letter-spacing:2px;
+    opacity:.28;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:750px){
+
+    nav{
+        padding:17px 18px;
+    }
+
+    .logo{
+        font-size:9px;
+        letter-spacing:3px;
+    }
+
+    .nav-link{
+        display:none;
+    }
+
+    .nav-etsy{
+        padding:9px 13px;
+        font-size:8px;
+    }
+
+    .hero{
+        padding-top:80px;
+    }
+
+    .hero-scene{
+        height:690px;
+    }
+
+    .portal{
+        width:290px;
+        height:290px;
+    }
+
+    .orbit.one{
+        width:450px;
+        height:170px;
+    }
+
+    .orbit.two{
+        width:520px;
+        height:190px;
+    }
+
+    .orbit.three{
+        width:370px;
+        height:370px;
+    }
+
+    .hero-card{
+        width:65px;
+        height:105px;
+    }
+
+    .card-a{
+        left:2%;
+        top:43%;
+    }
+
+    .card-b{
+        right:2%;
+        top:38%;
+    }
+
+    .card-c{
+        left:15%;
+        top:17%;
+    }
+
+    .card-d{
+        right:15%;
+        bottom:12%;
+    }
+
+    .hero-content{
+        width:95%;
+    }
+
+    .hero h1{
+        font-size:clamp(43px,13vw,75px);
+        letter-spacing:4px;
+    }
+
+    .hero-subtitle{
+        font-size:12px;
+        padding:0 10px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn{
+        width:230px;
+    }
+
+    .reading-grid{
+        grid-template-columns:1fr;
+    }
+
+    .reading{
+        min-height:420px;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .intro,
+    .quote-section,
+    .coming,
+    .about{
+        padding-top:110px;
+        padding-bottom:110px;
+    }
+
+    footer{
+        justify-content:center;
+        text-align:center;
+    }
+}
+
+@media(max-width:430px){
+
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .visual{
+        opacity:.65;
+        right:-15px;
+        transform:scale(.82);
+    }
+
+    .reading p{
+        max-width:245px;
+    }
+
+    .hero-card{
+        opacity:.65;
+    }
+
+    .portal{
+        width:250px;
+        height:250px;
+    }
+
+    .orbit.one{
+        width:390px;
+    }
+
+    .orbit.two{
+        width:430px;
+    }
+
+    .orbit.three{
+        width:320px;
+        height:320px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="space"></div>
+<div class="stars" id="stars"></div>
+<div class="dust"></div>
+<div class="grain"></div>
+
+
+<!-- =====================================================
+     NAV
+===================================================== -->
+
+<nav>
+
+<a href="#" class="logo">
+THE ZENTAROT CO
+</a>
+
+<div class="nav-right">
+
+<a href="#readings" class="nav-link">
+READINGS
+</a>
+
+<a href="#faq" class="nav-link">
+FAQ
+</a>
+
+<a
+href="https://thezentarotco.etsy.com"
+target="_blank"
+rel="noopener noreferrer"
+class="nav-etsy">
+SHOP ON ETSY
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="hero-scene" id="heroScene">
+
+<div class="portal"></div>
+
+<div class="orbit one">
+    <span class="orbit-dot dot1"></span>
+    <span class="orbit-dot dot3"></span>
+</div>
+
+<div class="orbit two">
+    <span class="orbit-dot dot2"></span>
+</div>
+
+<div class="orbit three">
+    <span class="orbit-dot dot4"></span>
+</div>
+
+
+<!-- FLOATING CARDS -->
+
+<div class="hero-card card-a"></div>
+<div class="hero-card card-b"></div>
+<div class="hero-card card-c"></div>
+<div class="hero-card card-d"></div>
+
+
+<!-- HERO TEXT -->
+
+<div class="hero-content">
+
+<div class="since">
+SINCE 2020
+</div>
+
+<h1>
+THE<br>
+ZENTAROT CO
+</h1>
+
+<p class="hero-subtitle">
+Personal readings for questions, reflection,
+relationships, choices and the things that matter to you.
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="https://thezentarotco.etsy.com"
+target="_blank"
+rel="noopener noreferrer"
+class="btn btn-primary">
+ENTER THE SHOP
+</a>
+
+<a
+href="#readings"
+class="btn btn-secondary">
+EXPLORE THE READINGS
+</a>
+
+</div>
+
+</div>
+
+
+<div class="scroll-indicator">
+
+EXPLORE
+
+<div class="scroll-line"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
+
+<div class="marquee">
+
+<div class="marquee-track">
+
+TAROT ✦ I CHING ✦ ORACLE ✦ SIBILLE ✦ SYMBOLS ✦ INTUITION ✦
+THE UNKNOWN ✦ THE JOURNEY ✦ TAROT ✦ I CHING ✦ ORACLE ✦
+SIBILLE ✦ SYMBOLS ✦ INTUITION ✦ THE UNKNOWN ✦
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+<div class="kicker">
+LOOK BEYOND THE OBVIOUS
+</div>
+
+<h2>
+Your question is the beginning.
+</h2>
+
+<p>
+Sometimes clarity begins when you look at a situation
+from another angle. Every reading begins with your question
+and is personally created around what you want to explore.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     READINGS
+===================================================== -->
+
+<section class="readings" id="readings">
+
+<div class="section-title">
+
+<div class="kicker">
+DISCOVER YOUR PATH
+</div>
+
+<h2>
+The Readings
+</h2>
+
+<p>
+Choose the symbolic system that speaks to you.
+</p>
+
+</div>
+
+
+<div class="reading-grid">
+
+
+<!-- TAROT -->
+
+<article class="reading">
+
+<div class="reading-number">
+01 / TAROT
+</div>
+
+<h3>
+Tarot
+</h3>
+
+<p>
+Explore your question through the symbolic language
+of the cards and receive a personal interpretation
+created around your situation.
+</p>
+
+<div class="visual">
+
+<div class="tarot-stack">
+
+<div class="tarot-mini"></div>
+<div class="tarot-mini"></div>
+<div class="tarot-mini"></div>
+
+</div>
+
+</div>
+
+<a
+href="https://thezentarotco.etsy.com"
+target="_blank"
+rel="noopener noreferrer"
+class="reading-link">
+BUY ON ETSY
+</a>
+
+</article>
+
+
+<!-- I CHING -->
+
+<article class="reading">
+
+<div class="reading-number">
+02 / I CHING
+</div>
+
+<h3>
+I Ching
+</h3>
+
+<p>
+An ancient symbolic system for reflecting on questions,
+changing patterns, choices and direction.
+</p>
+
+<div class="visual">
+
+<div class="iching-book">
+
+<div class="book-page left"></div>
+<div class="book-page right"></div>
+
+<div class="hexagram">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+</div>
+
+</div>
+
+<a
+href="https://thezentarotco.etsy.com"
+target="_blank"
+rel="noopener noreferrer"
+class="reading-link">
+BUY ON ETSY
+</a>
+
+</article>
+
+
+<!-- ORACLE -->
+
+<article class="reading">
+
+<div class="reading-number">
+03 / ORACLE
+</div>
+
+<h3>
+Oracle
+</h3>
+
+<p>
+A more intuitive and open-ended approach,
+guided by the messages and symbolism of the cards.
+</p>
+
+<div class="visual">
+
+<div class="oracle-orb"></div>
+
+</div>
+
+<a
+href="https://thezentarotco.etsy.com"
+target="_blank"
+rel="noopener noreferrer"
+class="reading-link">
+BUY ON ETSY
+</a>
+
+</article>
+
+
+<!-- SIBILLE -->
+
+<article class="reading">
+
+<div class="reading-number">
+04 / SIBILLE
+</div>
+
+<h3>
+Sibille
+</h3>
+
+<p>
+Traditional symbolic cards used to explore situations,
+relationships and the questions that matter to you.
+</p>
+
+<div class="visual">
+
+<div class="sibille-fan">
+
+<div class="sib-card"></div>
+<div class="sib-card"></div>
+<div class="sib-card"></div>
+<div class="sib-card"></div>
+<div class="sib-card"></div>
+
+</div>
+
+</div>
+
+<a
+href="https://thezentarotco.etsy.com"
+target="_blank"
+rel="noopener noreferrer"
+class="reading-link">
+BUY ON ETSY
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUOTE
+===================================================== -->
+
+<section class="quote-section">
+
+<div class="quote">
+Sometimes clarity begins
+with a different perspective.
+</div>
+
+<div class="quote-small">
+TRUST THE QUESTION
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section class="process">
+
+<div class="section-title">
+
+<div class="kicker">
+HOW IT WORKS
+</div>
+
+<h2>
+Simple. Personal. Yours.
+</h2>
+
+</div>
+
+
+<div class="process-grid">
+
+<div class="step">
+
+<div class="step-number">
+01
+</div>
+
+<h3>
+CHOOSE
+</h3>
+
+<p>
+Choose the reading that feels right for your question.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+02
+</div>
+
+<h3>
+BUY ON ETSY
+</h3>
+
+<p>
+Complete your order through The Zentarot Co Etsy shop.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+03
+</div>
+
+<h3>
+SEND YOUR QUESTION
+</h3>
+
+<p>
+Send your question and any context you want to share.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+04
+</div>
+
+<h3>
+RECEIVE YOUR READING
+</h3>
+
+<p>
+Your personal reading is created around your question.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COMING SOON
+===================================================== -->
+
+<section class="coming">
+
+<div class="coming-content">
+
+<div class="kicker">
+THE JOURNEY CONTINUES
+</div>
+
+<h2>
+MORE IS<br>
+COMING.
+</h2>
+
+<p>
+The Zentarot Co is growing.
+New readings, experiences and ways to explore
+will be introduced in the future.
+</p>
+
+<div class="coming-line">
+STAY CURIOUS · STAY OPEN · MORE TO COME
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about">
+
+<div class="about-box">
+
+<div class="kicker">
+THE ZENTAROT CO
+</div>
+
+<h2>
+Created with intention.
+</h2>
+
+<p>
+The Zentarot Co was created around a simple idea:
+a reading should feel personal.
+Your reading is not generated automatically.
+After your purchase, your question is personally considered
+and your reading is created specifically for you.
+</p>
+
+<div class="since">
+SINCE 2020
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="faq" id="faq">
+
+<div class="section-title">
+
+<div class="kicker">
+QUESTIONS
+</div>
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+<p>
+Everything you need to know before your reading.
+</p>
+
+</div>
+
+
+<div class="faq-container">
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+What happens after I place an order?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+After purchasing through Etsy, you can send your question
+and any context you feel is important.
+Your reading is then personally created around your question.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Is the reading automatic?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+No. The Zentarot Co does not use an automatic system
+to generate your personal interpretation.
+Each reading is personally created after the order.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+What can I ask about?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+You can ask about a situation, relationship, decision,
+personal reflection or another subject that is meaningful
+to you.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Which reading should I choose?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+Choose the system that attracts you most.
+Tarot, I Ching, Oracle and Sibille each offer
+a different symbolic approach.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Where do I purchase a reading?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+All readings are available through The Zentarot Co Etsy shop.
+Use any BUY ON ETSY or SHOP ON ETSY button on this website.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Will new services be added?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+Yes. The Zentarot Co is a growing project and new readings
+and experiences may be introduced in the future.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Where can I follow The Zentarot Co?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+You can follow The Zentarot Co on Instagram at
+@TheZenTarotCo.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="final">
+
+<div class="final-content">
+
+<div class="kicker">
+WHEN YOU'RE READY
+</div>
+
+<h2>
+ASK THE<br>
+QUESTION.
+</h2>
+
+<p>
+Begin your personal reading through
+The Zentarot Co on Etsy.
+</p>
+
+<a
+href="https://thezentarotco.etsy.com"
+target="_blank"
+rel="noopener noreferrer"
+class="btn btn-primary">
+ENTER THE SHOP
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-brand">
+THE ZENTAROT CO
+</div>
+
+<div class="socials">
+
+<a
+href="https://www.instagram.com/TheZenTarotCo/"
+target="_blank"
+rel="noopener noreferrer"
+class="social">
+INSTAGRAM · @TheZenTarotCo
+</a>
+
+<a
+href="https://thezentarotco.etsy.com"
+target="_blank"
+rel="noopener noreferrer"
+class="social">
+ETSY SHOP
+</a>
+
+</div>
+
+<div class="copy">
+© 2026 THE ZENTAROT CO
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   STAR FIELD
+========================================================= */
+
+const stars = document.getElementById("stars");
+
+for(let i = 0; i < 240; i++){
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.setProperty(
+        "--duration",
+        (Math.random() * 4 + 2) + "s"
+    );
+
+    star.style.animationDelay =
+        Math.random() * 5 + "s";
+
+    if(Math.random() > .75){
+
+        star.style.width = "3px";
+        star.style.height = "3px";
+
+    }
+
+    stars.appendChild(star);
+
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const item = button.parentElement;
+
+        document.querySelectorAll(".faq-item").forEach(other => {
+
+            if(other !== item){
+                other.classList.remove("active");
+            }
+
+        });
+
+        item.classList.toggle("active");
+
+    });
+
+});
+
+
+/* =========================================================
+   3D HERO MOUSE MOVEMENT
+========================================================= */
+
+const hero = document.getElementById("heroScene");
+
+document.addEventListener("mousemove", event => {
+
+    if(window.innerWidth < 750) return;
+
+    const x =
+        event.clientX / window.innerWidth - .5;
+
+    const y =
+        event.clientY / window.innerHeight - .5;
+
+    hero.style.transform =
+        `
+        rotateX(${y * -3}deg)
+        rotateY(${x * 5}deg)
+        `;
+});
+
+
+/* =========================================================
+   RESET HERO WHEN MOUSE LEAVES
+========================================================= */
+
+document.addEventListener("mouseleave", () => {
+
+    hero.style.transform =
+        "rotateX(0deg) rotateY(0deg)";
+
+});
+
+
+/* =========================================================
+   MAGNETIC BUTTONS
+========================================================= */
+
+document.querySelectorAll(".btn-primary").forEach(button => {
+
+    button.addEventListener("mousemove", event => {
+
+        if(window.innerWidth < 750) return;
+
+        const rect =
+            button.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left - rect.width / 2;
+
+        const y =
+            event.clientY - rect.top - rect.height / 2;
+
+        button.style.transform =
+            `translate(${x * .08}px,${y * .08}px) scale(1.04)`;
+
+    });
+
+    button.addEventListener("mouseleave", () => {
+
+        button.style.transform = "";
+
+    });
+
+});
+
+
+/* =========================================================
+   CINEMATIC CLICK LIGHT
+========================================================= */
+
+document.addEventListener("click", event => {
+
+    const flash =
+        document.createElement("div");
+
+    flash.style.position = "fixed";
+    flash.style.left = event.clientX + "px";
+    flash.style.top = event.clientY + "px";
+
+    flash.style.width = "4px";
+    flash.style.height = "4px";
+
+    flash.style.borderRadius = "50%";
+
+    flash.style.background = "#fff";
+
+    flash.style.boxShadow =
+        "0 0 50px 20px rgba(210,170,255,.65)";
+
+    flash.style.pointerEvents = "none";
+
+    flash.style.zIndex = "9999";
+
+    document.body.appendChild(flash);
+
+    flash.animate(
+
+        [
+            {
+                transform:"scale(1)",
+                opacity:1
+            },
+            {
+                transform:"scale(32)",
+                opacity:0
+            }
+        ],
+
+        {
+            duration:650,
+            easing:"cubic-bezier(.16,1,.3,1)"
+        }
+
+    );
+
+    setTimeout(() => {
+
+        flash.remove();
+
+    },650);
+
+});
+
+</script>
+
+</body>
+  </html>
