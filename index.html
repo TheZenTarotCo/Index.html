@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -13,7 +14,7 @@
 <meta name="description"
       content="The Zentarot Co. — Handmade Tarot, I Ching, Oracle, Sibille and spiritual practices. Since 2020.">
 
-<meta name="theme-color" content="#05030a">
+<meta name="theme-color" content="#040208">
 
 <meta name="google-site-verification"
       content="jqvcs_4a_kSp4lxnm2IYca5BErwr9z4xOKi7KHntON8">
@@ -28,7 +29,7 @@
 
 /* =========================================================
    THE ZENTAROT CO.
-   MOBILE PERFORMANCE EDITION
+   DEFINITIVE MOBILE-FIRST EDITION
    ========================================================= */
 
 :root{
@@ -51,8 +52,8 @@
 }
 
 html{
-    scroll-behavior:smooth;
     background:var(--black);
+    scroll-behavior:smooth;
 }
 
 body{
@@ -72,6 +73,7 @@ body{
         );
 
     color:var(--text);
+
     font-family:"Inter",sans-serif;
 
     overflow-x:hidden;
@@ -85,28 +87,32 @@ a{
     text-decoration:none;
 }
 
+strong{
+    color:#eee7f5;
+    font-weight:500;
+}
+
 /* =========================================================
-   BACKGROUND
+   COSMIC BACKGROUND
    ========================================================= */
 
 .space{
     position:fixed;
     inset:0;
 
-    pointer-events:none;
     z-index:-1;
 
     overflow:hidden;
 
+    pointer-events:none;
+
     background:
         radial-gradient(
-            circle at 80% 15%,
+            circle at 82% 15%,
             rgba(124,58,237,.07),
             transparent 25%
         );
 }
-
-/* Static stars = extremely cheap */
 
 .star{
     position:absolute;
@@ -124,10 +130,8 @@ a{
 .star.small{
     width:1px;
     height:1px;
-    opacity:.25;
+    opacity:.24;
 }
-
-/* Only a few very subtle glows */
 
 .bg-glow{
     position:absolute;
@@ -139,17 +143,17 @@ a{
 
     background:#6d28d9;
 
-    opacity:.07;
+    opacity:.06;
 }
 
 .bg-glow.left{
-    left:-100px;
+    left:-110px;
     top:35%;
 }
 
 .bg-glow.right{
-    right:-100px;
-    top:65%;
+    right:-110px;
+    top:68%;
 }
 
 /* =========================================================
@@ -178,6 +182,7 @@ nav{
     font-family:"Cinzel",serif;
 
     font-size:11px;
+
     letter-spacing:5px;
 
     color:#fff;
@@ -193,13 +198,14 @@ nav{
     position:relative;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     text-align:center;
 
     padding:
-        110px 22px
+        110px 20px
         65px;
 
     overflow:hidden;
@@ -231,10 +237,10 @@ nav{
 
     box-shadow:
         0 0 28px rgba(216,180,254,.25),
-        0 0 65px rgba(124,58,237,.12);
+        0 0 65px rgba(124,58,237,.10);
 
     animation:
-        moonMove 8s ease-in-out infinite;
+        moonFloat 8s ease-in-out infinite;
 }
 
 .moon::before{
@@ -269,20 +275,20 @@ nav{
     background:rgba(70,40,120,.10);
 }
 
-@keyframes moonMove{
+@keyframes moonFloat{
 
     0%,100%{
         transform:translateY(0);
     }
 
     50%{
-        transform:translateY(-9px);
+        transform:translateY(-8px);
     }
 
 }
 
 /* =========================================================
-   SIMPLE ORBIT
+   ORBIT
    ========================================================= */
 
 .orbit{
@@ -291,7 +297,9 @@ nav{
     width:430px;
     height:130px;
 
-    border:1px solid rgba(216,180,254,.10);
+    border:
+        1px solid
+        rgba(216,180,254,.10);
 
     border-radius:50%;
 
@@ -301,7 +309,7 @@ nav{
 }
 
 /* =========================================================
-   HERO CARDS
+   FLOATING CARDS
    ========================================================= */
 
 .hero-cards{
@@ -320,7 +328,9 @@ nav{
 
     border-radius:7px;
 
-    border:1px solid rgba(216,180,254,.24);
+    border:
+        1px solid
+        rgba(216,180,254,.24);
 
     background:
         linear-gradient(
@@ -333,21 +343,20 @@ nav{
         0 12px 25px rgba(0,0,0,.45);
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     color:#d8b4fe;
 
     animation:
-        cardMove 7s ease-in-out infinite;
+        cardFloat 8s ease-in-out infinite;
 }
 
 .card::before{
     content:"✦";
 
     font-size:20px;
-
-    color:#d8b4fe;
 }
 
 .card::after{
@@ -357,7 +366,9 @@ nav{
 
     inset:5px;
 
-    border:1px solid rgba(216,180,254,.10);
+    border:
+        1px solid
+        rgba(216,180,254,.10);
 
     border-radius:4px;
 }
@@ -396,14 +407,14 @@ nav{
     animation-delay:-1s;
 }
 
-@keyframes cardMove{
+@keyframes cardFloat{
 
     0%,100%{
         translate:0 0;
     }
 
     50%{
-        translate:0 -8px;
+        translate:0 -7px;
     }
 
 }
@@ -422,28 +433,28 @@ nav{
 }
 
 .eyebrow{
-    font-size:9px;
-
-    letter-spacing:3px;
+    margin-bottom:21px;
 
     color:#c4b5fd;
 
-    margin-bottom:21px;
+    font-size:9px;
+
+    letter-spacing:3px;
 }
 
 .hero h1{
-    font-family:"Cinzel",serif;
+    color:#fff;
 
-    font-weight:500;
+    font-family:"Cinzel",serif;
 
     font-size:
         clamp(43px,12vw,92px);
 
+    font-weight:500;
+
     line-height:.96;
 
     letter-spacing:3px;
-
-    color:#fff;
 
     text-shadow:
         0 0 25px rgba(168,85,247,.16);
@@ -464,7 +475,7 @@ nav{
 }
 
 .hero-description{
-    max-width:590px;
+    max-width:600px;
 
     margin:
         25px auto 0;
@@ -472,8 +483,19 @@ nav{
     font-size:13px;
 
     line-height:1.9;
+}
 
-    color:var(--text);
+.hero-note{
+    max-width:540px;
+
+    margin:
+        15px auto 0;
+
+    color:#81778a;
+
+    font-size:9px;
+
+    line-height:1.7;
 }
 
 .shop{
@@ -482,18 +504,18 @@ nav{
     align-items:center;
     justify-content:center;
 
-    margin-top:31px;
-
     min-height:48px;
+
+    margin-top:31px;
 
     padding:
         0 28px;
 
-    border-radius:50px;
-
     border:
         1px solid
         rgba(216,180,254,.30);
+
+    border-radius:50px;
 
     background:
         linear-gradient(
@@ -532,13 +554,13 @@ nav{
 .marquee-track{
     display:inline-block;
 
+    color:#786b83;
+
     font-family:"Cinzel",serif;
 
     font-size:9px;
 
     letter-spacing:3px;
-
-    color:#786b83;
 
     animation:
         marquee 38s linear infinite;
@@ -561,7 +583,7 @@ nav{
 }
 
 /* =========================================================
-   SECTIONS
+   GENERAL SECTIONS
    ========================================================= */
 
 section{
@@ -577,13 +599,13 @@ section{
 }
 
 .label{
+    margin-bottom:17px;
+
     color:#a78bfa;
 
     font-size:9px;
 
     letter-spacing:4px;
-
-    margin-bottom:17px;
 }
 
 .title{
@@ -625,6 +647,19 @@ section{
             rgba(168,85,247,.35),
             transparent
         );
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro{
+    text-align:center;
+}
+
+.intro .text{
+    margin-left:auto;
+    margin-right:auto;
 }
 
 /* =========================================================
@@ -678,11 +713,16 @@ section{
     width:155px;
     height:225px;
 
-    border-radius:10px;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
 
     border:
         1px solid
         rgba(216,180,254,.30);
+
+    border-radius:10px;
 
     background:
         radial-gradient(
@@ -694,10 +734,6 @@ section{
     box-shadow:
         0 25px 45px rgba(0,0,0,.55);
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
     color:#e9d5ff;
 
     font-size:55px;
@@ -705,17 +741,21 @@ section{
     transform:rotate(-5deg);
 
     animation:
-        artMove 7s ease-in-out infinite;
+        artFloat 8s ease-in-out infinite;
 }
 
-@keyframes artMove{
+@keyframes artFloat{
 
     0%,100%{
-        transform:translateY(0) rotate(-5deg);
+        transform:
+            translateY(0)
+            rotate(-5deg);
     }
 
     50%{
-        transform:translateY(-9px) rotate(-2deg);
+        transform:
+            translateY(-8px)
+            rotate(-2deg);
     }
 
 }
@@ -736,9 +776,9 @@ section{
 }
 
 .service{
-    padding:28px;
-
     min-height:255px;
+
+    padding:28px;
 
     border:
         1px solid var(--line);
@@ -809,11 +849,10 @@ section{
     width:230px;
     height:290px;
 
-    transform:
-        rotate(-3deg);
+    transform:rotate(-3deg);
 
     animation:
-        bookMove 8s ease-in-out infinite;
+        bookFloat 8s ease-in-out infinite;
 }
 
 .cover{
@@ -821,12 +860,12 @@ section{
 
     inset:0;
 
-    border-radius:
-        7px 14px 14px 7px;
-
     border:
         1px solid
         rgba(216,180,254,.28);
+
+    border-radius:
+        7px 14px 14px 7px;
 
     background:
         linear-gradient(
@@ -852,11 +891,11 @@ section{
     align-items:center;
     justify-content:center;
 
+    color:#e8dcff;
+
     font-family:serif;
 
     font-size:88px;
-
-    color:#e8dcff;
 }
 
 .pages{
@@ -881,33 +920,33 @@ section{
 .hexagram{
     position:absolute;
 
-    width:65px;
-
     left:50%;
     bottom:26px;
 
-    transform:
-        translateX(-50%);
+    width:65px;
 
     display:flex;
 
     flex-direction:column;
 
     gap:6px;
+
+    transform:
+        translateX(-50%);
 }
 
 .hex-line{
     height:4px;
 
-    background:#e8dcff;
-
     border-radius:5px;
+
+    background:#e8dcff;
 }
 
 .hex-line.broken{
-    background:none;
-
     position:relative;
+
+    background:none;
 }
 
 .hex-line.broken::before,
@@ -921,9 +960,9 @@ section{
     width:27px;
     height:4px;
 
-    background:#e8dcff;
-
     border-radius:5px;
+
+    background:#e8dcff;
 }
 
 .hex-line.broken::before{
@@ -934,7 +973,7 @@ section{
     right:0;
 }
 
-@keyframes bookMove{
+@keyframes bookFloat{
 
     0%,100%{
         transform:
@@ -945,7 +984,7 @@ section{
     50%{
         transform:
             rotate(2deg)
-            translateY(-8px);
+            translateY(-7px);
     }
 
 }
@@ -993,7 +1032,7 @@ section{
         0 0 40px rgba(168,85,247,.22);
 
     animation:
-        orbMove 7s ease-in-out infinite;
+        orbFloat 8s ease-in-out infinite;
 }
 
 .orb::after{
@@ -1007,19 +1046,19 @@ section{
     width:100%;
     height:100%;
 
-    color:white;
+    color:#fff;
 
     font-size:40px;
 }
 
-@keyframes orbMove{
+@keyframes orbFloat{
 
     0%,100%{
         transform:translateY(0);
     }
 
     50%{
-        transform:translateY(-9px);
+        transform:translateY(-8px);
     }
 
 }
@@ -1201,44 +1240,100 @@ section{
 }
 
 /* =========================================================
-   NOTICE
+   IMPORTANT NOTICE
    ========================================================= */
 
+.notice-section{
+    padding-top:55px;
+}
+
 .notice{
-    max-width:900px;
+    max-width:950px;
 
     margin:auto;
 
-    padding:26px;
+    padding:34px 28px;
 
     border:
         1px solid
-        rgba(216,180,254,.11);
+        rgba(216,180,254,.15);
 
-    border-radius:14px;
+    border-radius:18px;
 
     background:
-        rgba(255,255,255,.012);
+        linear-gradient(
+            135deg,
+            rgba(124,58,237,.045),
+            rgba(255,255,255,.012)
+        );
 }
 
 .notice-title{
-    color:#ddd2f0;
+    color:#e5d8f2;
 
     font-family:"Cinzel",serif;
 
-    font-size:11px;
+    font-size:12px;
 
     letter-spacing:2px;
 }
 
-.notice p{
-    margin-top:11px;
+.notice-intro{
+    margin-top:16px;
 
-    color:#8e8298;
+    color:#b8aebe;
+
+    font-size:11px;
+
+    line-height:1.85;
+}
+
+.notice-list{
+    margin-top:23px;
+
+    display:grid;
+
+    gap:12px;
+}
+
+.notice-item{
+    padding:
+        13px 15px;
+
+    border-left:
+        2px solid
+        rgba(167,139,250,.35);
+
+    background:
+        rgba(255,255,255,.012);
+
+    color:#8f8497;
 
     font-size:10px;
 
-    line-height:1.9;
+    line-height:1.8;
+}
+
+.notice-item strong{
+    color:#d8cbe3;
+}
+
+.notice-footer{
+    margin-top:22px;
+
+    color:#766b7e;
+
+    font-size:9px;
+
+    line-height:1.8;
+}
+
+/* =========================================================
+   FINAL MESSAGE
+   ========================================================= */
+
+.final{
+    padding-bottom:100px;
 }
 
 /* =========================================================
@@ -1246,14 +1341,14 @@ section{
    ========================================================= */
 
 footer{
-    text-align:center;
-
     padding:
         60px 7%
         35px;
 
     border-top:
         1px solid var(--line);
+
+    text-align:center;
 }
 
 .footer-logo{
@@ -1315,7 +1410,7 @@ footer{
 }
 
 /* =========================================================
-   MOBILE
+   TABLET / MOBILE
    ========================================================= */
 
 @media(max-width:850px){
@@ -1401,6 +1496,10 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .notice{
+        padding:28px 20px;
+    }
+
 }
 
 /* =========================================================
@@ -1425,6 +1524,7 @@ footer{
     .moon{
         width:110px;
         height:110px;
+
         right:-42px;
     }
 
@@ -1433,10 +1533,14 @@ footer{
         height:67px;
     }
 
+    .notice-item{
+        font-size:9.5px;
+    }
+
 }
 
 /* =========================================================
-   REDUCED MOTION
+   VERY LOW MOTION DEVICES
    ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
@@ -1445,7 +1549,9 @@ footer{
     *::before,
     *::after{
         animation:none !important;
+
         transition:none !important;
+
         scroll-behavior:auto !important;
     }
 
@@ -1457,7 +1563,7 @@ footer{
 <body>
 
 <!-- =====================================================
-     BACKGROUND
+     COSMIC BACKGROUND
      ===================================================== -->
 
 <div class="space">
@@ -1483,13 +1589,15 @@ footer{
 </div>
 
 <!-- =====================================================
-     NAV
+     NAVIGATION
      ===================================================== -->
 
 <nav>
+
     <div class="logo">
         THE ZENTAROT CO.
     </div>
+
 </nav>
 
 <!-- =====================================================
@@ -1532,6 +1640,11 @@ footer{
             personal dedication.
         </p>
 
+        <p class="hero-note">
+            Spiritual and symbolic experiences for personal reflection.
+            No guaranteed outcomes and no medical, legal or financial advice.
+        </p>
+
         <a
             class="shop"
             href="https://thezentarotco.etsy.com"
@@ -1545,7 +1658,7 @@ footer{
 </header>
 
 <!-- =====================================================
-     MARQUEE
+     MOVING WORDS
      ===================================================== -->
 
 <div class="marquee">
@@ -1556,15 +1669,15 @@ footer{
         <span>I CHING</span> ✦
         <span>ORACLE</span> ✦
         <span>SIBILLE</span> ✦
-        <span>LOVE RITUALS</span> ✦
-        <span>LUCK RITUALS</span> ✦
+        <span>RITUALS</span> ✦
+        <span>SYMBOLISM</span> ✦
 
         <span>TAROT</span> ✦
         <span>I CHING</span> ✦
         <span>ORACLE</span> ✦
         <span>SIBILLE</span> ✦
-        <span>LOVE RITUALS</span> ✦
-        <span>LUCK RITUALS</span> ✦
+        <span>RITUALS</span> ✦
+        <span>SYMBOLISM</span> ✦
 
     </div>
 
@@ -1574,7 +1687,7 @@ footer{
      INTRO
      ===================================================== -->
 
-<section>
+<section class="intro">
 
     <div class="container reveal">
 
@@ -1685,13 +1798,17 @@ footer{
 
         <div class="services">
 
+            <!-- TAROT -->
+
             <article class="service reveal">
 
                 <div class="number">
                     01 / TAROT
                 </div>
 
-                <h3>Tarot</h3>
+                <h3>
+                    Tarot
+                </h3>
 
                 <p>
                     Ask what you want to explore. There are no rigid
@@ -1707,13 +1824,17 @@ footer{
 
             </article>
 
+            <!-- I CHING -->
+
             <article class="service reveal">
 
                 <div class="number">
                     02 / I CHING
                 </div>
 
-                <h3>I Ching</h3>
+                <h3>
+                    I Ching
+                </h3>
 
                 <p>
                     The Book of Changes is approached through its
@@ -1728,13 +1849,17 @@ footer{
 
             </article>
 
+            <!-- ORACLE -->
+
             <article class="service reveal">
 
                 <div class="number">
                     03 / ORACLE
                 </div>
 
-                <h3>Oracle</h3>
+                <h3>
+                    Oracle
+                </h3>
 
                 <p>
                     Physical oracle cards bring together imagery,
@@ -1748,13 +1873,17 @@ footer{
 
             </article>
 
+            <!-- SIBILLE -->
+
             <article class="service reveal">
 
                 <div class="number">
                     04 / SIBILLE
                 </div>
 
-                <h3>Sibille</h3>
+                <h3>
+                    Sibille
+                </h3>
 
                 <p>
                     A traditional cartomantic language built around
@@ -1768,13 +1897,17 @@ footer{
 
             </article>
 
+            <!-- RITUALS -->
+
             <article class="service reveal">
 
                 <div class="number">
                     05 / RITUALS
                 </div>
 
-                <h3>Rituals</h3>
+                <h3>
+                    Rituals
+                </h3>
 
                 <p>
                     Symbolic spiritual practices centred around
@@ -1784,10 +1917,12 @@ footer{
                 <p>
                     They may explore themes such as love, luck and
                     personal intention, without practices intended
-                    to harm another person.
+                    to harm, threaten, control or coerce another person.
                 </p>
 
             </article>
+
+            <!-- YOUR QUESTION -->
 
             <article class="service reveal">
 
@@ -1795,7 +1930,9 @@ footer{
                     06 / YOUR QUESTION
                 </div>
 
-                <h3>Your Question</h3>
+                <h3>
+                    Your Question
+                </h3>
 
                 <p>
                     You do not need to find the perfect category.
@@ -1893,18 +2030,32 @@ footer{
 
         <div class="orb"></div>
 
-        <p class="text" style="margin-left:auto;margin-right:auto;">
+        <p class="text"
+           style="margin-left:auto;margin-right:auto;">
+
             Ritual work is presented as a symbolic spiritual practice:
             a focused moment dedicated to intention, reflection and
             personal meaning.
+
         </p>
 
         <div class="tags">
 
-            <div class="tag">LOVE</div>
-            <div class="tag">LUCK</div>
-            <div class="tag">INTENTION</div>
-            <div class="tag">FOCUS</div>
+            <div class="tag">
+                LOVE
+            </div>
+
+            <div class="tag">
+                LUCK
+            </div>
+
+            <div class="tag">
+                INTENTION
+            </div>
+
+            <div class="tag">
+                FOCUS
+            </div>
 
         </div>
 
@@ -1941,7 +2092,9 @@ footer{
                     01
                 </div>
 
-                <h3>Choose</h3>
+                <h3>
+                    Choose
+                </h3>
 
                 <p>
                     Choose the reading or spiritual experience that
@@ -1956,7 +2109,9 @@ footer{
                     02
                 </div>
 
-                <h3>Write</h3>
+                <h3>
+                    Write
+                </h3>
 
                 <p>
                     Tell us your question or situation in your own
@@ -1972,7 +2127,9 @@ footer{
                     03
                 </div>
 
-                <h3>Receive</h3>
+                <h3>
+                    Receive
+                </h3>
 
                 <p>
                     The request is studied and the reading is prepared
@@ -2056,9 +2213,12 @@ footer{
             @TheZenTarotCo
         </div>
 
-        <p class="text" style="margin-left:auto;margin-right:auto;">
-            Tarot, symbolism, seasonal themes, new ideas and occasional
-            surprises.
+        <p class="text"
+           style="margin-left:auto;margin-right:auto;">
+
+            Tarot, symbolism, seasonal themes, new ideas and
+            occasional surprises.
+
         </p>
 
     </div>
@@ -2087,33 +2247,92 @@ footer{
 </section>
 
 <!-- =====================================================
-     NOTE
+     IMPORTANT NOTICE
      ===================================================== -->
 
-<section>
+<section class="notice-section">
 
     <div class="notice reveal">
 
         <div class="notice-title">
-            ✦ A NOTE FROM THE ZENTAROT CO.
+            ✦ IMPORTANT — PLEASE READ
         </div>
 
-        <p>
-            Our readings and rituals belong to a spiritual and
-            esoteric tradition. They are personal interpretive
-            experiences and are not a substitute for professional
-            medical, psychological, legal or financial advice.
+        <p class="notice-intro">
+            The Zentarot Co. provides spiritual, symbolic and
+            esoteric experiences for personal reflection and
+            entertainment purposes.
         </p>
 
-        <p>
-            Ritual work is not intended to cause harm to another
-            person. The focus is on personal intention, symbolism,
-            reflection, love, luck and spiritual practice.
-        </p>
+        <div class="notice-list">
 
-        <p>
-            Questions involving health or serious personal situations
-            should be addressed to an appropriate professional.
+            <div class="notice-item">
+                <strong>NO GUARANTEES:</strong>
+                Tarot, I Ching, Oracle and Sibille readings are
+                symbolic interpretations. They are not guaranteed
+                predictions or certainties about the future.
+            </div>
+
+            <div class="notice-item">
+                <strong>NO MEDICAL ADVICE:</strong>
+                Our readings and rituals do not diagnose, treat,
+                cure or prevent illnesses or mental health conditions.
+                Health concerns should always be addressed by an
+                appropriate qualified healthcare professional.
+            </div>
+
+            <div class="notice-item">
+                <strong>NO PSYCHOLOGICAL OR THERAPEUTIC ADVICE:</strong>
+                Our services are not psychotherapy, counselling,
+                diagnosis or mental-health treatment.
+            </div>
+
+            <div class="notice-item">
+                <strong>NO LEGAL ADVICE:</strong>
+                Readings should never replace advice from a qualified
+                lawyer or legal professional.
+            </div>
+
+            <div class="notice-item">
+                <strong>NO FINANCIAL ADVICE:</strong>
+                Readings should not be used as a basis for investments,
+                financial decisions, gambling or other monetary risks.
+            </div>
+
+            <div class="notice-item">
+                <strong>NO CONTROL OVER OTHER PEOPLE:</strong>
+                Rituals are not intended to control, manipulate,
+                threaten, coerce or force another person's actions,
+                feelings or decisions.
+            </div>
+
+            <div class="notice-item">
+                <strong>NO HARM:</strong>
+                Ritual work offered through The Zentarot Co. is not
+                intended to harm, threaten or endanger another person.
+            </div>
+
+            <div class="notice-item">
+                <strong>NO EMERGENCY SERVICE:</strong>
+                Our services are not intended for emergencies,
+                crisis situations or circumstances requiring immediate
+                professional assistance.
+            </div>
+
+            <div class="notice-item">
+                <strong>PERSONAL RESPONSIBILITY:</strong>
+                Readings are intended as spiritual and symbolic
+                experiences. Decisions and actions remain the
+                responsibility of the individual.
+            </div>
+
+        </div>
+
+        <p class="notice-footer">
+            By purchasing a service, you acknowledge that you are
+            receiving a personal spiritual and symbolic experience,
+            not professional medical, psychological, legal or
+            financial advice.
         </p>
 
     </div>
@@ -2121,10 +2340,10 @@ footer{
 </section>
 
 <!-- =====================================================
-     FINAL MESSAGE
+     FINAL
      ===================================================== -->
 
-<section>
+<section class="final">
 
     <div class="quote reveal">
 
@@ -2166,11 +2385,25 @@ footer{
 
 </footer>
 
+<!-- =====================================================
+     LIGHTWEIGHT JAVASCRIPT
+     ===================================================== -->
+
 <script>
 
-/* =========================================================
-   LIGHTWEIGHT SCROLL REVEAL
-   ========================================================= */
+/*
+    PERFORMANCE FIRST
+
+    No canvas.
+    No particle engine.
+    No mouse tracking.
+    No requestAnimationFrame.
+    No external JavaScript libraries.
+    No continuous DOM generation.
+
+    Only a lightweight IntersectionObserver
+    for section reveals.
+*/
 
 const revealItems =
     document.querySelectorAll(".reveal");
@@ -2197,7 +2430,7 @@ const revealObserver =
         },
 
         {
-            threshold:.08,
+            threshold:0.08,
             rootMargin:"0px 0px -30px 0px"
         }
 
@@ -2208,20 +2441,6 @@ revealItems.forEach(function(item){
     revealObserver.observe(item);
 
 });
-
-
-/* =========================================================
-   PERFORMANCE
-   ========================================================= */
-
-/*
-   No canvas.
-   No requestAnimationFrame loop.
-   No mouse tracking.
-   No continuous particle generation.
-   No heavy filters.
-   No external JavaScript libraries.
-*/
 
 </script>
 
